@@ -12,28 +12,14 @@
 #import "MPFlipTransition.h"
 
 @interface OGRouteSelectionViewController () <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *paperBackgroundImageView;
+
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @end
 
 @implementation OGRouteSelectionViewController
 
-/**
- The paper background gets a nice shadow.
- The textfield gets a debug route id (Mannheim) as a default value.
- **/
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	
-	self.paperBackgroundImageView.layer.shadowOpacity = 1.0;
-	self.paperBackgroundImageView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-	self.paperBackgroundImageView.layer.shadowRadius = 20.0;
-	self.paperBackgroundImageView.layer.backgroundColor = [[UIColor blackColor] CGColor];
-	self.paperBackgroundImageView.layer.shadowPath = [[UIBezierPath bezierPathWithRect:self.paperBackgroundImageView.bounds] CGPath];
- 
-	self.textField.text = kDebugRouteID;
-}
+
+#pragma mark - UIViewController
 
 /**
  When the view appeared, make the keyboard visible.
@@ -42,7 +28,6 @@
 {
 	[self.textField becomeFirstResponder];
 }
-
 
 
 #pragma mark - UITextFieldDelegate

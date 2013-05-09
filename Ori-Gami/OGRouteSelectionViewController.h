@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OGMenuBaseViewController.h"
 
-@interface OGRouteSelectionViewController : UIViewController
+@interface OGRouteSelectionViewController : OGMenuBaseViewController
 
 - (void)selectRouteWithID:(NSString*)routeID;
 

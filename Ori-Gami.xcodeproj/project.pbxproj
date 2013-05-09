@@ -47,6 +47,7 @@
 		B318592616D51FC3003A5FC1 /* OGRouteSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B318592516D51FC3003A5FC1 /* OGRouteSelectionViewController.m */; };
 		B318592C16D52398003A5FC1 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B318592B16D52398003A5FC1 /* Constants.m */; };
 		B359B4D316F46C2E00D981A3 /* OGRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = B359B4D216F46C2E00D981A3 /* OGRoute.m */; };
+		B35ED363173C16C50090D6FC /* OGMenuBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B35ED362173C16C50090D6FC /* OGMenuBaseViewController.m */; };
 		B3697A6C16F0A3DB008B72FC /* OGEndGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3697A6B16F0A3DB008B72FC /* OGEndGameViewController.m */; };
 		B3697A8416F0A946008B72FC /* MPAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B3697A6F16F0A946008B72FC /* MPAnimation.m */; };
 		B3697A8516F0A946008B72FC /* MPFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = B3697A7216F0A946008B72FC /* MPFlipTransition.m */; };
@@ -128,6 +129,8 @@
 		B318592B16D52398003A5FC1 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		B359B4D116F46C2E00D981A3 /* OGRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRoute.h; sourceTree = "<group>"; };
 		B359B4D216F46C2E00D981A3 /* OGRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRoute.m; sourceTree = "<group>"; };
+		B35ED361173C16C50090D6FC /* OGMenuBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGMenuBaseViewController.h; sourceTree = "<group>"; };
+		B35ED362173C16C50090D6FC /* OGMenuBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGMenuBaseViewController.m; sourceTree = "<group>"; };
 		B3697A6A16F0A3DA008B72FC /* OGEndGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGEndGameViewController.h; sourceTree = "<group>"; };
 		B3697A6B16F0A3DB008B72FC /* OGEndGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGEndGameViewController.m; sourceTree = "<group>"; };
 		B3697A6E16F0A946008B72FC /* MPAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAnimation.h; sourceTree = "<group>"; };
@@ -327,6 +330,8 @@
 		B318592F16D53878003A5FC1 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B35ED361173C16C50090D6FC /* OGMenuBaseViewController.h */,
+				B35ED362173C16C50090D6FC /* OGMenuBaseViewController.m */,
 				B313B5EC16D5026A00374E28 /* OGMainMenuViewController.h */,
 				B313B5ED16D5026A00374E28 /* OGMainMenuViewController.m */,
 				B313B5FF16D50B5E00374E28 /* OGGameViewController.h */,
@@ -519,6 +524,7 @@
 				B3DBCEBE16F0E0C3005992EC /* OGAudioHelper.m in Sources */,
 				B359B4D316F46C2E00D981A3 /* OGRoute.m in Sources */,
 				B3E66EC016F4CFBD00C38A21 /* OGRouteCell.m in Sources */,
+				B35ED363173C16C50090D6FC /* OGMenuBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

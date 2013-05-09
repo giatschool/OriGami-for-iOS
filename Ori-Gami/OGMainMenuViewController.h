@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OGMenuBaseViewController.h"
 
-@interface OGMainMenuViewController : UIViewController
+@interface OGMainMenuViewController : OGMenuBaseViewController
 
 @end
