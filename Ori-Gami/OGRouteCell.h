@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OGRouteCell : UICollectionViewCell
+@interface OGRouteCell : UITableViewCell
 
-- (void)loadRoute:(NSString*)routeID;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *idLabel;
+
 
 @end

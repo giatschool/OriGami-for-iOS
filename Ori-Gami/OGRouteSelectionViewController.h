@@ -11,6 +11,4 @@
 
 @interface OGRouteSelectionViewController : OGMenuBaseViewController
 
-- (void)selectRouteWithID:(NSString*)routeID;
-
 @end
