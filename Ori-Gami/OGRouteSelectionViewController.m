@@ -31,7 +31,7 @@
 	self.paperBackgroundImageView.layer.shadowRadius = 20.0;
 	self.paperBackgroundImageView.layer.backgroundColor = [[UIColor blackColor] CGColor];
 	self.paperBackgroundImageView.layer.shadowPath = [[UIBezierPath bezierPathWithRect:self.paperBackgroundImageView.bounds] CGPath];
-
+ 
 	self.textField.text = kDebugRouteID;
 }
 
