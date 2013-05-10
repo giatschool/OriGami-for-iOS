@@ -21,6 +21,9 @@
 {
     [super viewDidLoad];
 
+	NSURL *url = [NSURL URLWithString:@"http://giv-learn2.uni-muenster.de/origami/editor/"];
+	NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+	[self.webView loadRequest:urlRequest];
 	
 }
 
@@ -28,7 +31,7 @@
 
 - (IBAction)closeButtonPressed:(id)sender
 {
-	[self.presentingViewController dismissViewControllerWithFoldStyle:MPFoldStyleCubic | MPFoldStyleHorizontal completion:^(BOOL finished) {
+	[self.presentingViewController dismissViewControllerWithFoldStyle:MPFoldStyleCubic completion:^(BOOL finished) {
 		
 	}];
 }

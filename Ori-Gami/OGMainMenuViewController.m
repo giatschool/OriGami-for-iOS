@@ -7,6 +7,8 @@
 //
 
 #import "OGMainMenuViewController.h"
+#import "MPFoldTransition.h"
+#import "OGEditorViewController.h"
 
 @interface OGMainMenuViewController ()
 
@@ -23,5 +25,13 @@
 
 }
 
+- (IBAction)editorButtonPressed:(id)sender
+{
+	OGEditorViewController *editorViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"editorViewController"];
+
+	[self presentViewController:editorViewController foldStyle:MPFoldStyleCubic | MPFoldStyleUnfold completion:^(BOOL finished) {
+		
+	}];
+}
 
 @end

@@ -45,6 +45,7 @@
 		B318592016D51C8E003A5FC1 /* ArcGIS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B318591F16D51C8E003A5FC1 /* ArcGIS.framework */; };
 		B318592616D51FC3003A5FC1 /* OGRouteSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B318592516D51FC3003A5FC1 /* OGRouteSelectionViewController.m */; };
 		B318592C16D52398003A5FC1 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B318592B16D52398003A5FC1 /* Constants.m */; };
+		B33D1304173C31A60070397A /* OGEditWaypointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33D1303173C31A60070397A /* OGEditWaypointViewController.m */; };
 		B359B4D316F46C2E00D981A3 /* OGRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = B359B4D216F46C2E00D981A3 /* OGRoute.m */; };
 		B35ED363173C16C50090D6FC /* OGMenuBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B35ED362173C16C50090D6FC /* OGMenuBaseViewController.m */; };
 		B35ED366173C2BE70090D6FC /* OGEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B35ED365173C2BE70090D6FC /* OGEditorViewController.m */; };
@@ -124,6 +125,8 @@
 		B318592516D51FC3003A5FC1 /* OGRouteSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRouteSelectionViewController.m; sourceTree = "<group>"; };
 		B318592A16D52398003A5FC1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B318592B16D52398003A5FC1 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		B33D1302173C31A60070397A /* OGEditWaypointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGEditWaypointViewController.h; sourceTree = "<group>"; };
+		B33D1303173C31A60070397A /* OGEditWaypointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGEditWaypointViewController.m; sourceTree = "<group>"; };
 		B359B4D116F46C2E00D981A3 /* OGRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRoute.h; sourceTree = "<group>"; };
 		B359B4D216F46C2E00D981A3 /* OGRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRoute.m; sourceTree = "<group>"; };
 		B35ED361173C16C50090D6FC /* OGMenuBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGMenuBaseViewController.h; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				B3697A6B16F0A3DB008B72FC /* OGEndGameViewController.m */,
 				B35ED364173C2BE70090D6FC /* OGEditorViewController.h */,
 				B35ED365173C2BE70090D6FC /* OGEditorViewController.m */,
+				B33D1302173C31A60070397A /* OGEditWaypointViewController.h */,
+				B33D1303173C31A60070397A /* OGEditWaypointViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -519,6 +524,7 @@
 				B3E66EC016F4CFBD00C38A21 /* OGRouteCell.m in Sources */,
 				B35ED363173C16C50090D6FC /* OGMenuBaseViewController.m in Sources */,
 				B35ED366173C2BE70090D6FC /* OGEditorViewController.m in Sources */,
+				B33D1304173C31A60070397A /* OGEditWaypointViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
