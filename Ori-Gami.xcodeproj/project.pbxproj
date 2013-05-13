@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30AD9C117412A7700066690 /* OGWaypointRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B30AD9C017412A7600066690 /* OGWaypointRenderer.m */; };
+		B30AD9C417412BD700066690 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B30AD9C317412BD700066690 /* UIView+Extensions.m */; };
 		B30B18C716EFAC7600C18DED /* OGSmileyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B30B18C616EFAC7600C18DED /* OGSmileyView.m */; };
 		B30B18C916EFC67900C18DED /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = B30B18C816EFC67800C18DED /* icon57.png */; };
 		B30B18CB16EFC67F00C18DED /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = B30B18CA16EFC67F00C18DED /* icon114.png */; };
@@ -32,6 +34,9 @@
 		B313B5F616D5091700374E28 /* background@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = B313B5F516D5091700374E28 /* background@2x~iphone.png */; };
 		B313B60116D50B5E00374E28 /* OGGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B313B60016D50B5E00374E28 /* OGGameViewController.m */; };
 		B313B60716D50B8A00374E28 /* OGHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B313B60616D50B8A00374E28 /* OGHelpViewController.m */; };
+		B3158C2F173EA34C0079080A /* OGRoutesListBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3158C2E173EA34C0079080A /* OGRoutesListBaseController.m */; };
+		B3158C32173EA6940079080A /* OGRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = B3158C31173EA6940079080A /* OGRoute.m */; };
+		B3158C35173EA6C90079080A /* OGEditorRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = B3158C34173EA6C80079080A /* OGEditorRoute.m */; };
 		B318590C16D51B96003A5FC1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B318590B16D51B96003A5FC1 /* CoreLocation.framework */; };
 		B318591216D51BBF003A5FC1 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B318590D16D51BBF003A5FC1 /* CoreText.framework */; };
 		B318591316D51BBF003A5FC1 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B318590E16D51BBF003A5FC1 /* libc++.dylib */; };
@@ -43,10 +48,17 @@
 		B318591C16D51BDC003A5FC1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B318591916D51BDC003A5FC1 /* Security.framework */; };
 		B318591E16D51C71003A5FC1 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B318591D16D51C71003A5FC1 /* ArcGIS.bundle */; };
 		B318592016D51C8E003A5FC1 /* ArcGIS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B318591F16D51C8E003A5FC1 /* ArcGIS.framework */; };
-		B318592616D51FC3003A5FC1 /* OGRouteSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B318592516D51FC3003A5FC1 /* OGRouteSelectionViewController.m */; };
+		B318592616D51FC3003A5FC1 /* OGRoutesListGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = B318592516D51FC3003A5FC1 /* OGRoutesListGameController.m */; };
 		B318592C16D52398003A5FC1 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B318592B16D52398003A5FC1 /* Constants.m */; };
+		B32F8257173E646900FCCC01 /* Liste@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B32F8256173E646900FCCC01 /* Liste@2x.png */; };
+		B32F8259173E64C400FCCC01 /* Liste.png in Resources */ = {isa = PBXBuildFile; fileRef = B32F8258173E64C400FCCC01 /* Liste.png */; };
+		B32F8260173E67BC00FCCC01 /* UIActionSheet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B32F825B173E67BC00FCCC01 /* UIActionSheet+Extensions.m */; };
+		B32F8261173E67BC00FCCC01 /* UIAlertView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B32F825D173E67BC00FCCC01 /* UIAlertView+Extensions.m */; };
+		B32F8262173E67BC00FCCC01 /* UIDevice+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B32F825F173E67BC00FCCC01 /* UIDevice+Extensions.m */; };
+		B32F8269173E770A00FCCC01 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = B32F8267173E770A00FCCC01 /* info.png */; };
+		B32F826A173E770A00FCCC01 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B32F8268173E770A00FCCC01 /* info@2x.png */; };
 		B33D1304173C31A60070397A /* OGEditWaypointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33D1303173C31A60070397A /* OGEditWaypointViewController.m */; };
-		B359B4D316F46C2E00D981A3 /* OGRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = B359B4D216F46C2E00D981A3 /* OGRoute.m */; };
+		B359B4D316F46C2E00D981A3 /* OGGameRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = B359B4D216F46C2E00D981A3 /* OGGameRoute.m */; };
 		B35ED363173C16C50090D6FC /* OGMenuBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B35ED362173C16C50090D6FC /* OGMenuBaseViewController.m */; };
 		B35ED366173C2BE70090D6FC /* OGEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B35ED365173C2BE70090D6FC /* OGEditorViewController.m */; };
 		B3697A6C16F0A3DB008B72FC /* OGEndGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3697A6B16F0A3DB008B72FC /* OGEndGameViewController.m */; };
@@ -61,6 +73,9 @@
 		B3697A8C16F0A946008B72FC /* MPFoldSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = B3697A8316F0A946008B72FC /* MPFoldSegue.m */; };
 		B3697A8F16F0C4E0008B72FC /* OGLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B3697A8E16F0C4E0008B72FC /* OGLog.m */; };
 		B394A13B16EE5E9600302D0E /* OGTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B394A13A16EE5E9600302D0E /* OGTask.m */; };
+		B3A9DFFC173FDC34003007A4 /* NSString+RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A9DFFB173FDC34003007A4 /* NSString+RandomString.m */; };
+		B3B532E1173CEC5F00C1E14B /* OGEditRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B532E0173CEC5F00C1E14B /* OGEditRouteViewController.m */; };
+		B3B532E6173CF72800C1E14B /* OGRoutesListEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B532E5173CF72700C1E14B /* OGRoutesListEditorController.m */; };
 		B3DBCEBE16F0E0C3005992EC /* OGAudioHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBCEBD16F0E0C3005992EC /* OGAudioHelper.m */; };
 		B3DBCEC216F0E178005992EC /* applause.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B3DBCEC016F0E178005992EC /* applause.mp3 */; };
 		B3DBCEC316F0E178005992EC /* trumpet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B3DBCEC116F0E178005992EC /* trumpet.mp3 */; };
@@ -77,6 +92,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B30AD9BF17412A7600066690 /* OGWaypointRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGWaypointRenderer.h; sourceTree = "<group>"; };
+		B30AD9C017412A7600066690 /* OGWaypointRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGWaypointRenderer.m; sourceTree = "<group>"; };
+		B30AD9C217412BD700066690 /* UIView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extensions.h"; sourceTree = "<group>"; };
+		B30AD9C317412BD700066690 /* UIView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extensions.m"; sourceTree = "<group>"; };
 		B30B18C516EFAC7600C18DED /* OGSmileyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGSmileyView.h; sourceTree = "<group>"; };
 		B30B18C616EFAC7600C18DED /* OGSmileyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGSmileyView.m; sourceTree = "<group>"; };
 		B30B18C816EFC67800C18DED /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
@@ -110,6 +129,12 @@
 		B313B60016D50B5E00374E28 /* OGGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGGameViewController.m; sourceTree = "<group>"; };
 		B313B60516D50B8A00374E28 /* OGHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGHelpViewController.h; sourceTree = "<group>"; };
 		B313B60616D50B8A00374E28 /* OGHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGHelpViewController.m; sourceTree = "<group>"; };
+		B3158C2D173EA34C0079080A /* OGRoutesListBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRoutesListBaseController.h; sourceTree = "<group>"; };
+		B3158C2E173EA34C0079080A /* OGRoutesListBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRoutesListBaseController.m; sourceTree = "<group>"; };
+		B3158C30173EA6940079080A /* OGRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRoute.h; sourceTree = "<group>"; };
+		B3158C31173EA6940079080A /* OGRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRoute.m; sourceTree = "<group>"; };
+		B3158C33173EA6C80079080A /* OGEditorRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGEditorRoute.h; sourceTree = "<group>"; };
+		B3158C34173EA6C80079080A /* OGEditorRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGEditorRoute.m; sourceTree = "<group>"; };
 		B318590B16D51B96003A5FC1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B318590D16D51BBF003A5FC1 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B318590E16D51BBF003A5FC1 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -121,14 +146,24 @@
 		B318591916D51BDC003A5FC1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B318591D16D51C71003A5FC1 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = ../../../../Library/SDKs/ArcGIS/iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<group>"; };
 		B318591F16D51C8E003A5FC1 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = ../../../Library/SDKs/ArcGIS/iOS/ArcGIS.framework; sourceTree = "<group>"; };
-		B318592416D51FC3003A5FC1 /* OGRouteSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRouteSelectionViewController.h; sourceTree = "<group>"; };
-		B318592516D51FC3003A5FC1 /* OGRouteSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRouteSelectionViewController.m; sourceTree = "<group>"; };
+		B318592416D51FC3003A5FC1 /* OGRoutesListGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRoutesListGameController.h; sourceTree = "<group>"; };
+		B318592516D51FC3003A5FC1 /* OGRoutesListGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRoutesListGameController.m; sourceTree = "<group>"; };
 		B318592A16D52398003A5FC1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B318592B16D52398003A5FC1 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		B32F8256173E646900FCCC01 /* Liste@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Liste@2x.png"; sourceTree = "<group>"; };
+		B32F8258173E64C400FCCC01 /* Liste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Liste.png; sourceTree = "<group>"; };
+		B32F825A173E67BC00FCCC01 /* UIActionSheet+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Extensions.h"; sourceTree = "<group>"; };
+		B32F825B173E67BC00FCCC01 /* UIActionSheet+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Extensions.m"; sourceTree = "<group>"; };
+		B32F825C173E67BC00FCCC01 /* UIAlertView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Extensions.h"; sourceTree = "<group>"; };
+		B32F825D173E67BC00FCCC01 /* UIAlertView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Extensions.m"; sourceTree = "<group>"; };
+		B32F825E173E67BC00FCCC01 /* UIDevice+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extensions.h"; sourceTree = "<group>"; };
+		B32F825F173E67BC00FCCC01 /* UIDevice+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extensions.m"; sourceTree = "<group>"; };
+		B32F8267173E770A00FCCC01 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		B32F8268173E770A00FCCC01 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
 		B33D1302173C31A60070397A /* OGEditWaypointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGEditWaypointViewController.h; sourceTree = "<group>"; };
 		B33D1303173C31A60070397A /* OGEditWaypointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGEditWaypointViewController.m; sourceTree = "<group>"; };
-		B359B4D116F46C2E00D981A3 /* OGRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRoute.h; sourceTree = "<group>"; };
-		B359B4D216F46C2E00D981A3 /* OGRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRoute.m; sourceTree = "<group>"; };
+		B359B4D116F46C2E00D981A3 /* OGGameRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGGameRoute.h; sourceTree = "<group>"; };
+		B359B4D216F46C2E00D981A3 /* OGGameRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGGameRoute.m; sourceTree = "<group>"; };
 		B35ED361173C16C50090D6FC /* OGMenuBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGMenuBaseViewController.h; sourceTree = "<group>"; };
 		B35ED362173C16C50090D6FC /* OGMenuBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGMenuBaseViewController.m; sourceTree = "<group>"; };
 		B35ED364173C2BE70090D6FC /* OGEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGEditorViewController.h; sourceTree = "<group>"; };
@@ -160,6 +195,12 @@
 		B3697A8E16F0C4E0008B72FC /* OGLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGLog.m; sourceTree = "<group>"; };
 		B394A13916EE5E9500302D0E /* OGTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGTask.h; sourceTree = "<group>"; };
 		B394A13A16EE5E9600302D0E /* OGTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGTask.m; sourceTree = "<group>"; };
+		B3A9DFFA173FDC34003007A4 /* NSString+RandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RandomString.h"; sourceTree = "<group>"; };
+		B3A9DFFB173FDC34003007A4 /* NSString+RandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RandomString.m"; sourceTree = "<group>"; };
+		B3B532DF173CEC5F00C1E14B /* OGEditRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGEditRouteViewController.h; sourceTree = "<group>"; };
+		B3B532E0173CEC5F00C1E14B /* OGEditRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGEditRouteViewController.m; sourceTree = "<group>"; };
+		B3B532E4173CF72700C1E14B /* OGRoutesListEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGRoutesListEditorController.h; sourceTree = "<group>"; };
+		B3B532E5173CF72700C1E14B /* OGRoutesListEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGRoutesListEditorController.m; sourceTree = "<group>"; };
 		B3DBCEBC16F0E0C3005992EC /* OGAudioHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGAudioHelper.h; sourceTree = "<group>"; };
 		B3DBCEBD16F0E0C3005992EC /* OGAudioHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGAudioHelper.m; sourceTree = "<group>"; };
 		B3DBCEC016F0E178005992EC /* applause.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = applause.mp3; sourceTree = "<group>"; };
@@ -281,6 +322,10 @@
 		B313B5F416D508E600374E28 /* Image Files */ = {
 			isa = PBXGroup;
 			children = (
+				B32F8267173E770A00FCCC01 /* info.png */,
+				B32F8268173E770A00FCCC01 /* info@2x.png */,
+				B32F8258173E64C400FCCC01 /* Liste.png */,
+				B32F8256173E646900FCCC01 /* Liste@2x.png */,
 				B3F39D6B16F4B01A00BD9A31 /* search@2x.png */,
 				B3F39D6C16F4B01A00BD9A31 /* search.png */,
 				B3DBCECC16F0F31D005992EC /* LocationDisplay.png */,
@@ -334,20 +379,31 @@
 				B35ED362173C16C50090D6FC /* OGMenuBaseViewController.m */,
 				B313B5EC16D5026A00374E28 /* OGMainMenuViewController.h */,
 				B313B5ED16D5026A00374E28 /* OGMainMenuViewController.m */,
-				B313B5FF16D50B5E00374E28 /* OGGameViewController.h */,
-				B313B60016D50B5E00374E28 /* OGGameViewController.m */,
+				B3158C2D173EA34C0079080A /* OGRoutesListBaseController.h */,
+				B3158C2E173EA34C0079080A /* OGRoutesListBaseController.m */,
+				B3B532E3173CEC7600C1E14B /* Game */,
+				B3B532E2173CEC6D00C1E14B /* Editor */,
 				B313B60516D50B8A00374E28 /* OGHelpViewController.h */,
 				B313B60616D50B8A00374E28 /* OGHelpViewController.m */,
-				B318592416D51FC3003A5FC1 /* OGRouteSelectionViewController.h */,
-				B318592516D51FC3003A5FC1 /* OGRouteSelectionViewController.m */,
-				B3697A6A16F0A3DA008B72FC /* OGEndGameViewController.h */,
-				B3697A6B16F0A3DB008B72FC /* OGEndGameViewController.m */,
-				B35ED364173C2BE70090D6FC /* OGEditorViewController.h */,
-				B35ED365173C2BE70090D6FC /* OGEditorViewController.m */,
-				B33D1302173C31A60070397A /* OGEditWaypointViewController.h */,
-				B33D1303173C31A60070397A /* OGEditWaypointViewController.m */,
 			);
 			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		B32F8263173E67C800FCCC01 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B32F825A173E67BC00FCCC01 /* UIActionSheet+Extensions.h */,
+				B32F825B173E67BC00FCCC01 /* UIActionSheet+Extensions.m */,
+				B32F825C173E67BC00FCCC01 /* UIAlertView+Extensions.h */,
+				B32F825D173E67BC00FCCC01 /* UIAlertView+Extensions.m */,
+				B32F825E173E67BC00FCCC01 /* UIDevice+Extensions.h */,
+				B32F825F173E67BC00FCCC01 /* UIDevice+Extensions.m */,
+				B3A9DFFA173FDC34003007A4 /* NSString+RandomString.h */,
+				B3A9DFFB173FDC34003007A4 /* NSString+RandomString.m */,
+				B30AD9C217412BD700066690 /* UIView+Extensions.h */,
+				B30AD9C317412BD700066690 /* UIView+Extensions.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		B3697A6D16F0A946008B72FC /* MPFoldTransition */ = {
@@ -389,16 +445,51 @@
 		B394A13C16EE654700302D0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B32F8263173E67C800FCCC01 /* Categories */,
 				B3DBCEBC16F0E0C3005992EC /* OGAudioHelper.h */,
 				B3DBCEBD16F0E0C3005992EC /* OGAudioHelper.m */,
 				B394A13916EE5E9500302D0E /* OGTask.h */,
 				B394A13A16EE5E9600302D0E /* OGTask.m */,
 				B3697A8D16F0C4E0008B72FC /* OGLog.h */,
 				B3697A8E16F0C4E0008B72FC /* OGLog.m */,
-				B359B4D116F46C2E00D981A3 /* OGRoute.h */,
-				B359B4D216F46C2E00D981A3 /* OGRoute.m */,
+				B3158C30173EA6940079080A /* OGRoute.h */,
+				B3158C31173EA6940079080A /* OGRoute.m */,
+				B359B4D116F46C2E00D981A3 /* OGGameRoute.h */,
+				B359B4D216F46C2E00D981A3 /* OGGameRoute.m */,
+				B3158C33173EA6C80079080A /* OGEditorRoute.h */,
+				B3158C34173EA6C80079080A /* OGEditorRoute.m */,
+				B30AD9BF17412A7600066690 /* OGWaypointRenderer.h */,
+				B30AD9C017412A7600066690 /* OGWaypointRenderer.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		B3B532E2173CEC6D00C1E14B /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				B35ED364173C2BE70090D6FC /* OGEditorViewController.h */,
+				B35ED365173C2BE70090D6FC /* OGEditorViewController.m */,
+				B33D1302173C31A60070397A /* OGEditWaypointViewController.h */,
+				B33D1303173C31A60070397A /* OGEditWaypointViewController.m */,
+				B3B532DF173CEC5F00C1E14B /* OGEditRouteViewController.h */,
+				B3B532E0173CEC5F00C1E14B /* OGEditRouteViewController.m */,
+				B3B532E4173CF72700C1E14B /* OGRoutesListEditorController.h */,
+				B3B532E5173CF72700C1E14B /* OGRoutesListEditorController.m */,
+			);
+			name = Editor;
+			sourceTree = "<group>";
+		};
+		B3B532E3173CEC7600C1E14B /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				B313B5FF16D50B5E00374E28 /* OGGameViewController.h */,
+				B313B60016D50B5E00374E28 /* OGGameViewController.m */,
+				B318592416D51FC3003A5FC1 /* OGRoutesListGameController.h */,
+				B318592516D51FC3003A5FC1 /* OGRoutesListGameController.m */,
+				B3697A6A16F0A3DA008B72FC /* OGEndGameViewController.h */,
+				B3697A6B16F0A3DB008B72FC /* OGEndGameViewController.m */,
+			);
+			name = Game;
 			sourceTree = "<group>";
 		};
 		B3DBCEBF16F0E15C005992EC /* Audio Files */ = {
@@ -489,6 +580,10 @@
 				B3DBCEC716F0E383005992EC /* flag@2x.png in Resources */,
 				B3F39D6D16F4B01A00BD9A31 /* search@2x.png in Resources */,
 				B3F39D6E16F4B01A00BD9A31 /* search.png in Resources */,
+				B32F8257173E646900FCCC01 /* Liste@2x.png in Resources */,
+				B32F8259173E64C400FCCC01 /* Liste.png in Resources */,
+				B32F8269173E770A00FCCC01 /* info.png in Resources */,
+				B32F826A173E770A00FCCC01 /* info@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +599,7 @@
 				B313B5EE16D5026A00374E28 /* OGMainMenuViewController.m in Sources */,
 				B313B60116D50B5E00374E28 /* OGGameViewController.m in Sources */,
 				B313B60716D50B8A00374E28 /* OGHelpViewController.m in Sources */,
-				B318592616D51FC3003A5FC1 /* OGRouteSelectionViewController.m in Sources */,
+				B318592616D51FC3003A5FC1 /* OGRoutesListGameController.m in Sources */,
 				B318592C16D52398003A5FC1 /* Constants.m in Sources */,
 				B394A13B16EE5E9600302D0E /* OGTask.m in Sources */,
 				B30B18C716EFAC7600C18DED /* OGSmileyView.m in Sources */,
@@ -520,11 +615,22 @@
 				B3697A8C16F0A946008B72FC /* MPFoldSegue.m in Sources */,
 				B3697A8F16F0C4E0008B72FC /* OGLog.m in Sources */,
 				B3DBCEBE16F0E0C3005992EC /* OGAudioHelper.m in Sources */,
-				B359B4D316F46C2E00D981A3 /* OGRoute.m in Sources */,
+				B359B4D316F46C2E00D981A3 /* OGGameRoute.m in Sources */,
 				B3E66EC016F4CFBD00C38A21 /* OGRouteCell.m in Sources */,
 				B35ED363173C16C50090D6FC /* OGMenuBaseViewController.m in Sources */,
 				B35ED366173C2BE70090D6FC /* OGEditorViewController.m in Sources */,
 				B33D1304173C31A60070397A /* OGEditWaypointViewController.m in Sources */,
+				B3B532E1173CEC5F00C1E14B /* OGEditRouteViewController.m in Sources */,
+				B3B532E6173CF72800C1E14B /* OGRoutesListEditorController.m in Sources */,
+				B32F8260173E67BC00FCCC01 /* UIActionSheet+Extensions.m in Sources */,
+				B32F8261173E67BC00FCCC01 /* UIAlertView+Extensions.m in Sources */,
+				B32F8262173E67BC00FCCC01 /* UIDevice+Extensions.m in Sources */,
+				B3158C2F173EA34C0079080A /* OGRoutesListBaseController.m in Sources */,
+				B3158C32173EA6940079080A /* OGRoute.m in Sources */,
+				B3158C35173EA6C90079080A /* OGEditorRoute.m in Sources */,
+				B3A9DFFC173FDC34003007A4 /* NSString+RandomString.m in Sources */,
+				B30AD9C117412A7700066690 /* OGWaypointRenderer.m in Sources */,
+				B30AD9C417412BD700066690 /* UIView+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

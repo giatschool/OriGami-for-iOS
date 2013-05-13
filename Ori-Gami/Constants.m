@@ -20,7 +20,7 @@ NSString *const kFeatureLayerURLEditor = @"http://giv-learn2.uni-muenster.de/arc
 NSString *const kRouteIDField = @"route_id";
 NSString *const kWaypointIDField = @"waypoint_id";
 NSString *const kDescriptionField = @"description";
-NSString *const kRouteNameField = @"route_name";
+NSString *const kRouteNameField = @"name";
 
 //NSString *const kDebugRouteID = @"Vehj9";
 //NSString *const kDebugRouteID = @"qs1LZ";

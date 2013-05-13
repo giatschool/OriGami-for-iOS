@@ -8,7 +8,7 @@
 
 #import "OGEndGameViewController.h"
 #import "MPFlipTransition.h"
-#import "OGRoute.h"
+#import "OGGameRoute.h"
 
 @interface OGEndGameViewController ()
 

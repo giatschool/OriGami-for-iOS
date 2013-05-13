@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OGMenuBaseViewController.h"
+#import "OGRoutesListBaseController.h"
 
-@interface OGRouteSelectionViewController : OGMenuBaseViewController
+@interface OGRoutesListGameController : OGRoutesListBaseController
 
 @end

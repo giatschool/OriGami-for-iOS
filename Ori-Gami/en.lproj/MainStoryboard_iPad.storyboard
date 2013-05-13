@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="-9" y="-26"/>
         </scene>
-        <!--Route Selection View Controller-->
+        <!--Routes List Game Controller-->
         <scene sceneID="ThF-IO-aIg">
             <objects>
-                <viewController id="Jhg-K5-iC9" customClass="OGRouteSelectionViewController" sceneMemberID="viewController">
+                <viewController id="Jhg-K5-iC9" customClass="OGRoutesListGameController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FRi-WM-1kT">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -175,6 +175,7 @@
                                         <connections>
                                             <outlet property="idLabel" destination="m9m-fw-AUo" id="LCh-M2-hVA"/>
                                             <outlet property="nameLabel" destination="u2s-un-rxx" id="pK8-sg-ErD"/>
+                                            <segue destination="8Fk-EC-De7" kind="custom" identifier="startGameSegue" customClass="MPFlipNavPushSegue" id="VXx-H5-ZzE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -199,7 +200,6 @@
                         <outlet property="tableView" destination="SNR-vE-Oml" id="3PC-PV-SyG"/>
                         <outlet property="textField" destination="W95-m1-c4l" id="ida-Pv-deg"/>
                         <outlet property="waitlabel" destination="18o-21-e50" id="pPG-BP-AXs"/>
-                        <segue destination="8Fk-EC-De7" kind="custom" identifier="startGameSegue" customClass="MPFlipNavPushSegue" id="CAM-tf-bKf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26N-Uu-XzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,41 +214,139 @@
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" id="HEc-CJ-14f">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="XPJ-95-4ar">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Ori-Gami Editor" id="VR9-Lc-rhS">
-                                        <barButtonItem key="leftBarButtonItem" title="Schliessen" id="4wg-KD-eXl">
-                                            <connections>
-                                                <action selector="closeButtonPressed:" destination="5BX-ZI-W5x" id="RGU-MC-wAA"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4F8-gx-5AK"/>
-                                    </navigationItem>
+                                    <barButtonItem title="Schliessen" id="zze-ar-gDB">
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="5BX-ZI-W5x" id="BtT-XB-hdY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="mY8-aO-klq"/>
+                                    <barButtonItem image="info.png" id="lWq-Lv-WKX">
+                                        <connections>
+                                            <segue destination="Rg4-UI-Yu7" kind="modal" identifier="showEditRoute" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="paA-FX-05a"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="Liste.png" id="gFi-k3-hgW">
+                                        <connections>
+                                            <segue destination="Sxu-6R-TGO" kind="popover" identifier="showRoutes" popoverAnchorBarButtonItem="gFi-k3-hgW" id="zDb-ND-MbY">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="add" id="5Zl-4h-Z8C">
+                                        <connections>
+                                            <segue destination="Rg4-UI-Yu7" kind="modal" identifier="showAddRoute" modalPresentationStyle="formSheet" id="FQc-4Y-jGs"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
-                            </navigationBar>
-                            <webView contentMode="scaleToFill" id="thQ-zK-SNI">
-                                <rect key="frame" x="0.0" y="44" width="768" height="960"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                            </webView>
+                            </toolbar>
                             <view contentMode="scaleToFill" id="Z4A-mx-afL" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="44" width="768" height="960"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="thQ-zK-SNI" id="dlT-Bu-Nwz"/>
+                        <outlet property="addButton" destination="5Zl-4h-Z8C" id="gmg-iN-KE1"/>
+                        <outlet property="infoButton" destination="lWq-Lv-WKX" id="ODB-cB-Q7e"/>
+                        <outlet property="listButton" destination="gFi-k3-hgW" id="J0p-aZ-mhC"/>
+                        <outlet property="mapView" destination="Z4A-mx-afL" id="UYi-xH-dHs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwj-Ph-zUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-9" y="1307"/>
+        </scene>
+        <!--Edit Route View Controller - New Route-->
+        <scene sceneID="ZXZ-VU-nlx">
+            <objects>
+                <tableViewController id="NOA-C1-NkF" customClass="OGEditRouteViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="TVr-Yd-NR2">
+                        <rect key="frame" x="0.0" y="64" width="540" height="556"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Name" footerTitle="Tragen Sie einen Namen für die neue Route ein." id="jKZ-Rf-WXU">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="lwa-uZ-SWY">
+                                        <rect key="frame" x="0.0" y="54" width="540" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="31" y="1" width="478" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="Olf-wq-gs7">
+                                                    <rect key="frame" x="20" y="7" width="438" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="NOA-C1-NkF" id="ksj-zS-tGD"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="E-Mail" footerTitle="Falls Sie die RouteID als Mail zugeschickt bekommen möchten, tragen Sie hier die Empfängeradresse ein." id="IfH-0Z-co2">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="lGA-6c-1N3">
+                                        <rect key="frame" x="0.0" y="175" width="540" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="31" y="1" width="478" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="JRq-4v-YVI">
+                                                    <rect key="frame" x="20" y="7" width="438" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="NOA-C1-NkF" id="0f8-E5-280"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="NOA-C1-NkF" id="h3T-Tu-jKF"/>
+                            <outlet property="delegate" destination="NOA-C1-NkF" id="OUq-O9-kjI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Route" id="Dcs-fU-f2A">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="owG-ne-dnL">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="NOA-C1-NkF" id="JNf-bj-OtC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="G55-fL-8OF">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="NOA-C1-NkF" id="uNq-NO-yp6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="JRq-4v-YVI" id="aA1-4Y-rBh"/>
+                        <outlet property="nameTextField" destination="Olf-wq-gs7" id="LvS-jZ-wVR"/>
+                        <outlet property="saveButton" destination="G55-fL-8OF" id="MwQ-FS-dkY"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYh-jA-XYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2142" y="1333"/>
         </scene>
         <!--End Game View Controller-->
         <scene sceneID="iF1-9d-2J5">
@@ -379,77 +477,128 @@
             </objects>
             <point key="canvasLocation" x="-983" y="-26"/>
         </scene>
+        <!--Routes List Editor Controller - Routes-->
+        <scene sceneID="UrT-Z6-5bF">
+            <objects>
+                <tableViewController id="4HS-dq-aP3" customClass="OGRoutesListEditorController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="trN-eU-a6D">
+                        <rect key="frame" x="0.0" y="64" width="540" height="556"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="e8K-ra-vPr" detailTextLabel="tsK-fU-t3Y" style="IBUITableViewCellStyleValue1" id="dYP-Ei-RKK">
+                                <rect key="frame" x="0.0" y="22" width="540" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="540" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e8K-ra-vPr">
+                                            <rect key="frame" x="10" y="11" width="35" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tsK-fU-t3Y">
+                                            <rect key="frame" x="486" y="11" width="44" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4HS-dq-aP3" id="s58-aH-CTz"/>
+                            <outlet property="delegate" destination="4HS-dq-aP3" id="Lp2-Uj-mJb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Routes" id="2yc-1U-p4V">
+                        <barButtonItem key="leftBarButtonItem" id="UTo-LZ-541">
+                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🔎" minimumFontSize="17" id="Owu-qJ-6hy">
+                                <rect key="frame" x="7" y="7" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4HS-dq-aP3" id="vP6-zg-xvz"/>
+                                </connections>
+                            </textField>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="iEy-u3-guG">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="4HS-dq-aP3" id="Jhb-YH-Fpg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="600"/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="editButton" destination="iEy-u3-guG" id="Zu4-zh-kwS"/>
+                        <outlet property="textField" destination="Owu-qJ-6hy" id="4bu-D1-Px2"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZu-Ok-WtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2149" y="2158"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zeQ-hY-HuA">
+            <objects>
+                <navigationController id="Rg4-UI-Yu7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0te-vb-4TC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NOA-C1-NkF" kind="relationship" relationship="rootViewController" id="CMs-s3-nAI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="243-Jz-vsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1168" y="1333"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oeb-lT-fzV">
+            <objects>
+                <navigationController id="Sxu-6R-TGO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="600"/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lz5-up-WzZ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4HS-dq-aP3" kind="relationship" relationship="rootViewController" id="OB2-bL-aPl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Hq-Pm-H5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1168" y="2158"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Liste.png" width="24" height="20"/>
         <image name="background~ipad.png" width="1024" height="1024"/>
+        <image name="info.png" width="16" height="16"/>
         <image name="paperBackground@2x.png" width="589" height="832"/>
         <image name="search.png" width="66" height="67"/>
     </resources>
-    <classes>
-        <class className="AGSMapView" superclassName="AGSMapViewBase">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AGSMapView.h"/>
-        </class>
-        <class className="AGSMapViewBase" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AGSMapViewBase.h"/>
-        </class>
-        <class className="OGEditorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGEditorViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="OGEndGameViewController" superclassName="OGMenuBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGEndGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="mainMenuButtonPressed:"/>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="OGGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGGameViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="AGSMapView"/>
-                <relationship kind="outlet" name="paperBackgroundImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="smileyView" candidateClass="OGSmileyView"/>
-                <relationship kind="outlet" name="taskLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="OGMainMenuViewController" superclassName="OGMenuBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGMainMenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="editorButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="OGMenuBaseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGMenuBaseViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="paperBackgroundImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="OGRouteCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGRouteCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="idLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="OGRouteSelectionViewController" superclassName="OGMenuBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGRouteSelectionViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="waitlabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="OGSmileyView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGSmileyView.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="paA-FX-05a"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="1317" y="-679"/>
         </scene>
-        <!--Route Selection View Controller-->
+        <!--Routes List Game Controller-->
         <scene sceneID="52v-qE-BrH">
             <objects>
-                <viewController id="5OI-eH-2cs" customClass="OGRouteSelectionViewController" sceneMemberID="viewController">
+                <viewController id="5OI-eH-2cs" customClass="OGRoutesListGameController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QgV-iU-0Zc">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

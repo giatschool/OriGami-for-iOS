@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "OGMenuBaseViewController.h"
 
-@class OGRoute;
+@class OGGameRoute;
 
 @interface OGEndGameViewController : OGMenuBaseViewController
 
-@property (nonatomic, strong) OGRoute *route;
+@property (nonatomic, strong) OGGameRoute *route;
 
 
 @end

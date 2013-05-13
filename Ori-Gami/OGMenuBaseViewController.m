@@ -30,6 +30,13 @@
 	self.paperBackgroundImageView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
 	self.paperBackgroundImageView.layer.shadowRadius = 20.0;
 	self.paperBackgroundImageView.layer.backgroundColor = [[UIColor blackColor] CGColor];
+}
+
+/**
+ Setting the shadow path later, because of device orientation
+ **/
+- (void)viewDidAppear:(BOOL)animated
+{
 	self.paperBackgroundImageView.layer.shadowPath = [[UIBezierPath bezierPathWithRect:self.paperBackgroundImageView.bounds] CGPath];
 }
 
@@ -38,6 +45,8 @@
  **/
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
+	NSLog(@"%s", __func__);
+
 	CGRect fromRect = self.paperBackgroundImageView.bounds;
 	CGRect toRect = self.paperBackgroundImageView.bounds;
 	fromRect.size.height = toRect.size.width;

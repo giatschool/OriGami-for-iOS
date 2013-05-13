@@ -11,7 +11,7 @@
 #import "OGSmileyView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "OGAudioHelper.h"
-#import "OGRoute.h"
+#import "OGGameRoute.h"
 #import "OGEndGameViewController.h"
 
 @interface OGGameViewController () <AGSMapViewLayerDelegate, AGSLayerDelegate, AGSFeatureLayerQueryDelegate>
@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *paperBackgroundImageView;
 
 @property (nonatomic, strong) AGSFeatureLayer *featureLayer;
-@property (nonatomic, strong) OGRoute *route;
+@property (nonatomic, strong) OGGameRoute *route;
 
 @end
 
@@ -102,7 +102,7 @@
 {
 	if (featureSet.features.count > 1)
 	{
-		self.route = [OGRoute routeWithFeatureSet:featureSet startingPoint:self.mapView.locationDisplay.mapLocation];
+		self.route = [OGGameRoute routeWithFeatureSet:featureSet startingPoint:self.mapView.locationDisplay.mapLocation];
 
 		[self.mapView zoomToScale:30000.0 withCenterPoint:self.route.currentTask.startPoint animated:YES];
 	}

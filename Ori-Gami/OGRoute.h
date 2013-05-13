@@ -2,7 +2,7 @@
 //  OGRoute.h
 //  Ori-Gami
 //
-//  Created by Benni on 16.03.13.
+//  Created by Benni on 11.05.13.
 //  Copyright (c) 2013 Ifgi. All rights reserved.
 //
 
@@ -12,22 +12,17 @@
 @class AGSFeatureSet;
 @class AGSPoint;
 
-typedef enum
-{
-	OGGameStateStarting,
-	OGGameStateRunning,
-	OGGameStateFinished
-} OGGameState;
+typedef void (^RouteCompletionBlock)(NSArray *routes);
+
 
 @interface OGRoute : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *routeID;
-@property (nonatomic, strong, readonly) OGTask *currentTask;
-@property (nonatomic, readonly) OGGameState gameState;
-@property (nonatomic, readonly) NSTimeInterval time;
 
 + (instancetype)routeWithFeatureSet:(AGSFeatureSet*)featureSet startingPoint:(AGSPoint*)startingPoint;
-- (void)unlockNextTask;
+- (id)initWithFeatureSet:(AGSFeatureSet*)featureSet startingPoint:(AGSPoint*)startingPoint;
+- (void)queryAllRoutes:(RouteCompletionBlock)completion;
+- (OGTask*)objectAtIndexedSubscript:(NSUInteger)idx;
 
 @end

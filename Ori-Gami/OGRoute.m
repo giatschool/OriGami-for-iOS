@@ -2,7 +2,7 @@
 //  OGRoute.m
 //  Ori-Gami
 //
-//  Created by Benni on 16.03.13.
+//  Created by Benni on 11.05.13.
 //  Copyright (c) 2013 Ifgi. All rights reserved.
 //
 
@@ -10,11 +10,14 @@
 #import "OGTask.h"
 #import <ArcGIS/ArcGIS.h>
 
-@interface OGRoute ()
+
+@interface OGRoute () <AGSQueryTaskDelegate>
 
 @property (nonatomic, strong) NSArray *tasks;
-@property (nonatomic, assign) NSInteger currentTaskIndex;
-@property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) RouteCompletionBlock completion;
+
+@property (nonatomic, strong) AGSQuery *query;
+@property (nonatomic, strong) AGSQueryTask *queryTask;
 
 @end
 
@@ -33,12 +36,10 @@
 	
     if (self)
 	{
-		_currentTaskIndex = 0;
-		_gameState = OGGameStateStarting;
 		_tasks = [NSArray arrayWithArray:[self createTasksFromFeatureSet:featureSet startingPoint:startingPoint]];
 		
 		_name = [featureSet.features[0] attributeAsStringForKey:kRouteNameField];
-		_routeID = [featureSet.features[0] attributeAsStringForKey:kRouteIDField];		
+		_routeID = [featureSet.features[0] attributeAsStringForKey:kRouteIDField];
     }
     
 	return self;
@@ -47,23 +48,55 @@
 
 #pragma mark - Public methods
 
-- (void)unlockNextTask
+- (void)queryAllRoutes:(RouteCompletionBlock)completion
 {
-	self.currentTaskIndex++;
+	self.completion = completion;
 	
-	if (self.currentTaskIndex == 1)
+	self.query = [AGSQuery query];
+	self.query.outFields = [NSArray arrayWithObjects:kRouteIDField, nil];
+	self.query.orderByFields = @[[NSString stringWithFormat:@"%@ ASC", kRouteIDField]];
+	self.query.where = [NSString stringWithFormat:@"%@ IS NOT NULL", kRouteIDField];
+	
+	self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:kFeatureLayerURLGame]];
+	self.queryTask.delegate = self;
+	[self.queryTask executeWithQuery:self.query];
+}
+
+
+#pragma mark - AGSQueryTaskDelegate
+
+- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation *)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
+{
+	NSMutableArray *array = [NSMutableArray array];
+	
+	for (AGSGraphic *feature in featureSet.features)
 	{
-		self.startDate = [NSDate date];
+		NSString *route_id = [feature attributeAsStringForKey:kRouteIDField];
+		NSString *route_name = [feature attributeAsStringForKey:kRouteNameField];
+		NSDictionary *route = @{kRouteIDField: route_id , kRouteNameField: route_name};
+		__block BOOL add = YES;
+		
+		[array enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop)
+		 {
+			 if ([dict[kRouteIDField] isEqualToString:route_id])
+			 {
+				 add = NO;
+				 *stop = YES;
+			 }
+		 }];
+		
+		if (add)
+		{
+			[array addObject:route];
+		}
 	}
 	
-	if (self.currentTaskIndex > 0 && self.currentTaskIndex < self.tasks.count)
-	{
-		self.gameState = OGGameStateRunning;
-	}
-	else if (self.currentTaskIndex >= self.tasks.count)
-	{
-		self.gameState = OGGameStateFinished;
-	}
+	self.completion(array);
+}
+
+- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation *)op didFailWithError:(NSError *)error
+{
+	OGLog(error.localizedDescription);
 }
 
 
@@ -72,7 +105,7 @@
 - (NSArray*)createTasksFromFeatureSet:(AGSFeatureSet*)featureSet startingPoint:(AGSPoint*)startingPoint
 {
 	AGSGraphic *firstFeature = featureSet.features[0];
-
+	
 	OGTask *startTask = [OGTask taskWithAGSGraphic:firstFeature];
 	startTask = [OGTask taskWithAGSGraphic:firstFeature];
 	startTask.startPoint = startingPoint;
@@ -80,46 +113,29 @@
 	startTask.taskDescription = @"Finde den Startpunkt und begib dich dorthin";
 	
 	NSMutableArray *tmpTasks = [NSMutableArray arrayWithObject:startTask];
-
+	
 	[featureSet.features enumerateObjectsUsingBlock:^(AGSGraphic *feature, NSUInteger index, BOOL *stop)
-	{
-		OGTask *task = [OGTask taskWithAGSGraphic:feature];
-		
-		AGSGraphic *featureStart = featureSet.features[index];
-		AGSGraphic *featureDestination = featureSet.features[index + 1];
-		task = [OGTask taskWithAGSGraphic:featureStart];
-		task.waypointNumber = index;
-		task.destinationPoint = featureDestination.geometry.envelope.center;
-		task.taskDescription = [featureStart attributeAsStringForKey:kDescriptionField];
-		
-		[tmpTasks addObject:task];
-		
-		if (index == featureSet.features.count - 2)
-		{
-			*stop = YES;
-		}
-	}];
+	 {
+		 OGTask *task = [OGTask taskWithAGSGraphic:feature];
+		 
+		 AGSGraphic *featureStart = featureSet.features[index];
+		 AGSGraphic *featureDestination = featureSet.features[index + 1];
+		 task = [OGTask taskWithAGSGraphic:featureStart];
+		 task.waypointNumber = index;
+		 task.destinationPoint = featureDestination.geometry.envelope.center;
+		 task.taskDescription = [featureStart attributeAsStringForKey:kDescriptionField];
+		 
+		 [tmpTasks addObject:task];
+		 
+		 if (index == featureSet.features.count - 2)
+		 {
+			 *stop = YES;
+		 }
+	 }];
 	
 	return tmpTasks;
 }
 
-
-#pragma mark - Accessors
-
-- (OGTask *)currentTask
-{
-	return self[self.currentTaskIndex];
-}
-
-- (void)setGameState:(OGGameState)gameState
-{
-	_gameState = gameState;
-}
-
-- (NSTimeInterval)time
-{
-	return [[NSDate date] timeIntervalSinceDate:self.startDate];
-}
 
 #pragma mark - Subscripting
 
@@ -127,6 +143,7 @@
 {
 	return self.tasks[idx];
 }
+
 
 #pragma mark - NSObject
 
@@ -141,5 +158,6 @@
 	
 	return description;
 }
+
 
 @end
