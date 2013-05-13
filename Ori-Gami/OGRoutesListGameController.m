@@ -25,7 +25,12 @@
 
 #pragma mark - UIViewController
 
-
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	
+	self.textField.text = kDebugRouteID;
+}
 
 #pragma mark - UITextFieldDelegate
 
@@ -61,7 +66,16 @@
 	if ([segue.identifier isEqualToString:@"startGameSegue"])
 	{
 		OGGameViewController *controller = (OGGameViewController*)segue.destinationViewController;
-		controller.routeID = self.textField.text;
+		
+		if ([self.textField.text isEqualToString:@""])
+		{
+			controller.routeID = self.dataArray[self.tableView.indexPathForSelectedRow.row][kRouteIDField];
+		}
+		else
+		{
+			controller.routeID = self.filteredArray[self.tableView.indexPathForSelectedRow.row][kRouteIDField];
+		}
+		
 	}
 }
 

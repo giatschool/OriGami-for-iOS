@@ -19,9 +19,8 @@ typedef void (^RouteCompletionBlock)(NSArray *routes);
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *routeID;
+@property (nonatomic, strong) NSArray *tasks;
 
-+ (instancetype)routeWithFeatureSet:(AGSFeatureSet*)featureSet startingPoint:(AGSPoint*)startingPoint;
-- (id)initWithFeatureSet:(AGSFeatureSet*)featureSet startingPoint:(AGSPoint*)startingPoint;
 - (void)queryAllRoutes:(RouteCompletionBlock)completion;
 - (OGTask*)objectAtIndexedSubscript:(NSUInteger)idx;
 

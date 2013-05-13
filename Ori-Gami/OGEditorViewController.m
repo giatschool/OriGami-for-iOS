@@ -14,6 +14,9 @@
 #import "OGEditRouteViewController.h"
 #import "UIAlertView+Extensions.h"
 #import "OGWaypointRenderer.h"
+#import "OGTask.h"
+#import <QuartzCore/QuartzCore.h>
+#import "UIView+Extensions.h"
 
 @interface OGEditorViewController () <AGSMapViewCalloutDelegate, UIPopoverControllerDelegate, AGSFeatureLayerEditingDelegate, AGSFeatureLayerQueryDelegate, AGSLayerDelegate, AGSMapViewTouchDelegate, AGSMapViewLayerDelegate, AGSQueryTaskDelegate, OGRouteEditDelegate, OGRoutesListDelegate>
 
@@ -43,14 +46,8 @@
 {
     [super viewDidLoad];	
 	
-	AGSOpenStreetMapLayer *basemapLayer = [AGSOpenStreetMapLayer openStreetMapLayer];
-	basemapLayer.renderNativeResolution = YES;
-	self.mapView.layerDelegate = self;
-	self.mapView.touchDelegate = self;
-	self.mapView.calloutDelegate = self;
-	[self.mapView addMapLayer:basemapLayer withName:@"Basemap Layer"];
-	[self.mapView.locationDisplay addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew) context:NULL];
-
+	[self setupMapView];
+	
 	self.infoButton.enabled = NO;
 	self.listButton.enabled = NO;
 }
@@ -68,10 +65,6 @@
 
 - (void)mapViewDidLoad:(AGSMapView*)mapView
 {
-	[self setupFeatureLayer];
-	[self setupRenderer];
-	
-	[self.mapView addMapLayer:self.featureLayer withName:@"Feature Layer"];
 	[self.mapView.locationDisplay startDataSource];
 }
 
@@ -224,20 +217,20 @@
 	
 	[self setupFeatureLayer];
 	[self loadRouteIntoFeatureLayer];
+	
 }
 
 
 
 #pragma mark - AGSFeatureLayerQueryDelegate
 
-/**
- When the feature layer finishes loading the features, if there are any features,
- the first one is transformed to the new current task and the interface is updated.
- **/
 - (void)featureLayer:(AGSFeatureLayer *)featureLayer operation:(NSOperation *)op didSelectFeaturesWithFeatureSet:(AGSFeatureSet *)featureSet
 {
 	if (featureSet.features.count > 0)
 	{
+		self.selectedRoute = [OGGameRoute routeWithFeatureSet:featureSet startingPoint:self.mapView.locationDisplay.mapLocation];
+		[self.mapView zoomToScale:30000.0 withCenterPoint:self.selectedRoute.currentTask.startPoint animated:YES];
+		
 		NSLog(@"Found %i features", featureSet.features.count);
 	}
 	else
@@ -265,9 +258,20 @@
 	self.query.orderByFields = @[[NSString stringWithFormat:@"%@ ASC", kRouteIDField]];
 	self.query.where = [NSString stringWithFormat:@"%@ IS NOT NULL", kRouteIDField];
 	
-	self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:kFeatureLayerURLGame]];
+	self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:kFeatureLayerURLEditor]];
 	self.queryTask.delegate = self;
 	[self.queryTask executeWithQuery:self.query];
+}
+
+- (void)setupMapView
+{
+	AGSOpenStreetMapLayer *basemapLayer = [AGSOpenStreetMapLayer openStreetMapLayer];
+	basemapLayer.renderNativeResolution = YES;
+	self.mapView.layerDelegate = self;
+	self.mapView.touchDelegate = self;
+	self.mapView.calloutDelegate = self;
+	[self.mapView addMapLayer:basemapLayer withName:@"Basemap Layer"];
+	[self.mapView.locationDisplay addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew) context:NULL];
 }
 
 /**
@@ -279,6 +283,11 @@
 	self.featureLayer.definitionExpression = [NSString stringWithFormat:@"%@ LIKE '%@'", kRouteIDField, self.selectedRoute.routeID];
 	self.featureLayer.delegate = self;
 	self.featureLayer.queryDelegate = self;
+	
+	[self.mapView removeMapLayerWithName:@"Feature Layer"];
+	[self.mapView addMapLayer:self.featureLayer withName:@"Feature Layer"];
+	
+	[self setupRenderer];
 }
 
 - (void)loadRouteIntoFeatureLayer
@@ -296,19 +305,38 @@
  **/
 - (void)setupRenderer
 {
-	OGWaypointRenderer *waypointRenderer = [[OGWaypointRenderer alloc] init];
+	AGSPictureMarkerSymbol *pictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImage:[UIImage imageNamed:@"flag"]];
+	
+	AGSUniqueValueRenderer *uniqueValueRenderer = [[AGSUniqueValueRenderer alloc] init];
+	uniqueValueRenderer.defaultSymbol = pictureSymbol;
+	uniqueValueRenderer.fields = @[kWaypointIDField];
+	
+	NSMutableArray *uniqueValues = [NSMutableArray new];
+	
+	for (int i = 0; i < 20; i++)
+	{
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
+		label.text = [NSString stringWithFormat:@"%i", i];
+		label.textColor = [UIColor whiteColor];
+		label.textAlignment = NSTextAlignmentCenter;
+		label.backgroundColor = [UIColor blueColor];
+		label.font = [UIFont boldSystemFontOfSize:15.0];
+		label.opaque = NO;
+		label.layer.borderColor = [UIColor whiteColor].CGColor;
+		label.layer.borderWidth = 3.0;
+		label.layer.cornerRadius = 15.0;
+		
+		UIImage *image = [label screenshot];
+		AGSPictureMarkerSymbol *pictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImage:image];
 
-//	
-//	AGSPictureMarkerSymbol *pictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImage:[UIImage imageNamed:@"flag"]];
-////	AGSPictureMarkerSymbol *emptySymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImage:[UIImage imageNamed:@""]];
-////	AGSUniqueValue *uniqueValue = [AGSUniqueValue uniqueValueWithValue:@"0" symbol:pictureSymbol];
-//	
-//	AGSUniqueValueRenderer *uniqueValueRenderer = [[AGSUniqueValueRenderer alloc] init];
-//	uniqueValueRenderer.defaultSymbol = pictureSymbol;
-////	uniqueValueRenderer.uniqueValues = @[uniqueValue];
-//	uniqueValueRenderer.fields = @[kWaypointIDField];
-//	
-	self.featureLayer.renderer = waypointRenderer;
+		AGSUniqueValue *uniqueValue = [AGSUniqueValue uniqueValueWithValue:label.text symbol:pictureSymbol];
+
+		[uniqueValues addObject:uniqueValue];
+	}
+	
+	uniqueValueRenderer.uniqueValues = uniqueValues;
+
+	self.featureLayer.renderer = uniqueValueRenderer;
 }
 
 
@@ -374,7 +402,10 @@
 {
 	if ([keyPath isEqual:@"location"])
 	{
-		[self.mapView zoomToScale:30000.0 withCenterPoint:self.mapView.locationDisplay.mapLocation animated:YES];
+		NSLog(@"%@", self.mapView.locationDisplay.location.point);
+
+		[self.mapView zoomToScale:30000.0 withCenterPoint:self.mapView.locationDisplay.location.point animated:YES];
+		
 		[self.mapView.locationDisplay stopDataSource];
 		[self.mapView.locationDisplay removeObserver:self forKeyPath:@"location"];
 	}

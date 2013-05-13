@@ -12,7 +12,6 @@
 
 @interface OGGameRoute () <AGSQueryTaskDelegate>
 
-@property (nonatomic, strong) NSArray *tasks;
 @property (nonatomic, assign) NSInteger currentTaskIndex;
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) RouteCompletionBlock completion;
@@ -26,19 +25,25 @@
 
 #pragma mark - Initialisation
 
++ (id)routeWithFeatureSet:(AGSFeatureSet*)featureSet startingPoint:(AGSPoint*)startingPoint
+{
+	return [[OGGameRoute alloc] initWithFeatureSet:featureSet startingPoint:startingPoint];
+}
+
 - (id)initWithFeatureSet:(AGSFeatureSet*)featureSet startingPoint:(AGSPoint*)startingPoint
 {
-    self = [super initWithFeatureSet:featureSet startingPoint:startingPoint];
+    self = [super init];
 	
     if (self)
 	{
-		_currentTaskIndex = 0;
-		_gameState = OGGameStateStarting;
-	}
+		self.tasks = [NSArray arrayWithArray:[self createTasksFromFeatureSet:featureSet startingPoint:startingPoint]];
+		
+		self.name = [featureSet.features[0] attributeAsStringForKey:kRouteNameField];
+		self.routeID = [featureSet.features[0] attributeAsStringForKey:kRouteIDField];
+    }
     
 	return self;
 }
-
 
 #pragma mark - Public methods
 
@@ -59,6 +64,42 @@
 	{
 		self.gameState = OGGameStateFinished;
 	}
+}
+
+#pragma mark - Private metods
+
+- (NSArray*)createTasksFromFeatureSet:(AGSFeatureSet*)featureSet startingPoint:(AGSPoint*)startingPoint
+{
+	AGSGraphic *firstFeature = featureSet.features[0];
+	
+	OGTask *startTask = [OGTask taskWithAGSGraphic:firstFeature];
+	startTask = [OGTask taskWithAGSGraphic:firstFeature];
+	startTask.startPoint = startingPoint;
+	startTask.destinationPoint = firstFeature.geometry.envelope.center;
+	startTask.taskDescription = @"Finde den Startpunkt und begib dich dorthin";
+	
+	NSMutableArray *tmpTasks = [NSMutableArray arrayWithObject:startTask];
+	
+	[featureSet.features enumerateObjectsUsingBlock:^(AGSGraphic *feature, NSUInteger index, BOOL *stop)
+	 {
+		 OGTask *task = [OGTask taskWithAGSGraphic:feature];
+		 
+		 AGSGraphic *featureStart = featureSet.features[index];
+		 AGSGraphic *featureDestination = featureSet.features[index + 1];
+		 task = [OGTask taskWithAGSGraphic:featureStart];
+		 task.waypointNumber = index;
+		 task.destinationPoint = featureDestination.geometry.envelope.center;
+		 task.taskDescription = [featureStart attributeAsStringForKey:kDescriptionField];
+		 
+		 [tmpTasks addObject:task];
+		 
+		 if (index == featureSet.features.count - 2)
+		 {
+			 *stop = YES;
+		 }
+	 }];
+	
+	return tmpTasks;
 }
 
 

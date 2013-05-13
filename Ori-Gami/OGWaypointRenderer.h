@@ -8,6 +8,8 @@
 
 #import <ArcGIS/ArcGIS.h>
 
-@interface OGWaypointRenderer : AGSRenderer
+@interface OGWaypointRenderer : AGSSimpleRenderer
+
+- (AGSSymbol *)symbolForGraphic:(AGSGraphic *)graphic timeExtent:(AGSTimeExtent *)timeExtent;
 
 @end

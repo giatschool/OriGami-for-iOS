@@ -27,6 +27,8 @@ typedef enum
 @property (nonatomic, readonly) OGGameState gameState;
 @property (nonatomic, readonly) NSTimeInterval time;
 
++ (id)routeWithFeatureSet:(AGSFeatureSet*)featureSet startingPoint:(AGSPoint*)startingPoint;
+- (id)initWithFeatureSet:(AGSFeatureSet*)featureSet startingPoint:(AGSPoint*)startingPoint;
 - (void)unlockNextTask;
 
 

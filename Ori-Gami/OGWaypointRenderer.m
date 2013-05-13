@@ -14,9 +14,13 @@
 
 - (AGSSymbol *)symbolForGraphic:(AGSGraphic *)graphic timeExtent:(AGSTimeExtent *)timeExtent
 {
+	NSLog(@"%s", __func__);
+
 	NSString *number = [graphic attributeAsStringForKey:kWaypointIDField];
 	UILabel *label = [self getLabelWithString:number];
 	UIImage *image = [label screenshot];
+	
+	[UIImageJPEGRepresentation(image, 1.0) writeToFile:@"/Users/Benni/image.jpg" atomically:YES];
 	
 	AGSPictureMarkerSymbol *pictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImage:image];
 	
@@ -30,7 +34,7 @@
 	label.textColor = [UIColor whiteColor];
 	label.textAlignment = NSTextAlignmentCenter;
 	label.backgroundColor = [UIColor blueColor];
-	label.font = [UIFont systemFontOfSize:30.0];
+	label.font = [UIFont boldSystemFontOfSize:30.0];
 
 	label.layer.borderColor = [UIColor whiteColor].CGColor;
 	label.layer.borderWidth = 5.0;

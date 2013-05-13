@@ -15,7 +15,7 @@ const NSInteger kMaximumImageWidth = 640;
 
 NSString *const kBaseMapURL = @"http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer";
 NSString *const kFeatureLayerURLGame = @"http://giv-learn2.uni-muenster.de/arcgis/rest/services/GeoSpatialLearning/route/MapServer/0";
-NSString *const kFeatureLayerURLEditor = @"http://giv-learn2.uni-muenster.de/arcgis/rest/services/GeoSpatialLearning/route/FeatureServer/";
+NSString *const kFeatureLayerURLEditor = @"http://giv-learn2.uni-muenster.de/arcgis/rest/services/GeoSpatialLearning/route/FeatureServer/0";
 
 NSString *const kRouteIDField = @"route_id";
 NSString *const kWaypointIDField = @"waypoint_id";
