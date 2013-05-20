@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Ifgi. All rights reserved.
 //
 
-#import "OGGameRoute.h"
+#import "OGRoute.h"
 
-@interface OGEditorRoute : OGGameRoute
+@interface OGEditorRoute : OGRoute
 
-+ (instancetype)editorRouteWithName:(NSString*)name id:(NSString*)idCode;
+- (OGTask*)objectAtIndexedSubscript:(NSUInteger)idx;
 
 @end

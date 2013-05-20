@@ -10,13 +10,14 @@
 
 @implementation OGEditorRoute
 
-+ (instancetype)editorRouteWithName:(NSString*)name id:(NSString*)idCode
+
+
+
+#pragma mark - Subscripting
+
+- (OGTask*)objectAtIndexedSubscript:(NSUInteger)idx
 {
-	OGEditorRoute *route = [OGEditorRoute new];
-	route.name = name;
-	route.routeID = idCode;
-	
-	return route;
+	return _tasks[idx];
 }
 
 

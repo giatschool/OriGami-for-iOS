@@ -15,8 +15,6 @@
 @interface OGRoutesListEditorController () <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *editButton;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (nonatomic, strong) NSMutableArray *filteredArray;
 
 @end
 
@@ -28,37 +26,9 @@
 
 - (void)viewDidLoad
 {
-	self.filteredArray = [NSMutableArray array];
+	[super viewDidLoad];
+	
 	self.editButton.enabled = self.canEdit;
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:@"UITextFieldTextDidChangeNotification" object:self.textField];
-}
-
-
-#pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-	if ([self.textField.text isEqualToString:@""])
-	{
-		return self.dataArray.count;
-	}
-	else
-	{
-		return self.filteredArray.count;
-	}
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-	OGEditorRoute *route = ([self.textField.text isEqualToString:@""]) ? self.dataArray[indexPath.row] : self.filteredArray[indexPath.row];
-    cell.detailTextLabel.text = route.routeID;
-    cell.textLabel.text = route.name;
-	
-    return cell;
 }
 
 
@@ -82,8 +52,7 @@
 		{
 			if (self.canEdit && buttonIndex == 1)
 			{
-				OGEditorRoute *route = self.dataArray[indexPath.row];
-				[self.delegate routesListController:self didDeleteRoute:route];
+				[self.delegate routesListController:self didDeleteRouteWithID:self.dataArray[indexPath.row][kRouteIDField]];
 								
 				[self.dataArray removeObjectAtIndex:indexPath.row];
 				[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -107,7 +76,7 @@
 	{
 		if (buttonIndex == 0)
 		{
-			[self.delegate routesListController:self didSelectRoute:self.dataArray[indexPath.row]];
+			[self.delegate routesListController:self didSelectRouteWithID:self.dataArray[indexPath.row][kRouteIDField]];
 		}
 	};
 	
@@ -134,30 +103,6 @@
 		editButton.title = @"Edit";
 		editButton.style = UIBarButtonItemStyleBordered;
 	}
-}
-
-
-#pragma mark - Notifications
-
-- (void)textDidChange :(NSNotification *)notification
-{
-	[self.filteredArray removeAllObjects];
-	
-	NSString *searchString = self.textField.text;
-	
-	NSIndexSet *indice = [self.dataArray indexesOfObjectsPassingTest:^BOOL(OGEditorRoute *route, NSUInteger idx, BOOL *stop)
-						  {
-							  return ([route.routeID rangeOfString:searchString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch].location != NSNotFound);
-						  }];
-	
-	[self.filteredArray addObjectsFromArray:[self.dataArray objectsAtIndexes:indice]];
-	
-	[self.tableView reloadData];
-}
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

@@ -14,16 +14,15 @@
 
 @protocol OGRoutesListDelegate <NSObject>
 
-- (void)routesListController:(OGRoutesListEditorController*)routesListController didDeleteRoute:(OGEditorRoute*)route;
-- (void)routesListController:(OGRoutesListEditorController*)routesListController didSelectRoute:(OGEditorRoute*)route;
+- (void)routesListController:(OGRoutesListEditorController*)routesListController didDeleteRouteWithID:(NSString*)routeID;
+- (void)routesListController:(OGRoutesListEditorController*)routesListController didSelectRouteWithID:(NSString*)routeID;
 
 @end
 
 
-@interface OGRoutesListEditorController : UITableViewController
+@interface OGRoutesListEditorController : OGRoutesListBaseController
 
 @property (nonatomic, assign) BOOL canEdit;
 @property (nonatomic, assign) id <OGRoutesListDelegate> delegate;
-@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end

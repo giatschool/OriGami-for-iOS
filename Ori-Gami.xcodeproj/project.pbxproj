@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B30AD9C117412A7700066690 /* OGWaypointRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B30AD9C017412A7600066690 /* OGWaypointRenderer.m */; };
 		B30AD9C417412BD700066690 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B30AD9C317412BD700066690 /* UIView+Extensions.m */; };
 		B30B18C716EFAC7600C18DED /* OGSmileyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B30B18C616EFAC7600C18DED /* OGSmileyView.m */; };
 		B30B18C916EFC67900C18DED /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = B30B18C816EFC67800C18DED /* icon57.png */; };
@@ -92,8 +91,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B30AD9BF17412A7600066690 /* OGWaypointRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGWaypointRenderer.h; sourceTree = "<group>"; };
-		B30AD9C017412A7600066690 /* OGWaypointRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGWaypointRenderer.m; sourceTree = "<group>"; };
 		B30AD9C217412BD700066690 /* UIView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extensions.h"; sourceTree = "<group>"; };
 		B30AD9C317412BD700066690 /* UIView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extensions.m"; sourceTree = "<group>"; };
 		B30B18C516EFAC7600C18DED /* OGSmileyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGSmileyView.h; sourceTree = "<group>"; };
@@ -458,8 +455,6 @@
 				B359B4D216F46C2E00D981A3 /* OGGameRoute.m */,
 				B3158C33173EA6C80079080A /* OGEditorRoute.h */,
 				B3158C34173EA6C80079080A /* OGEditorRoute.m */,
-				B30AD9BF17412A7600066690 /* OGWaypointRenderer.h */,
-				B30AD9C017412A7600066690 /* OGWaypointRenderer.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -629,7 +624,6 @@
 				B3158C32173EA6940079080A /* OGRoute.m in Sources */,
 				B3158C35173EA6C90079080A /* OGEditorRoute.m in Sources */,
 				B3A9DFFC173FDC34003007A4 /* NSString+RandomString.m in Sources */,
-				B30AD9C117412A7700066690 /* OGWaypointRenderer.m in Sources */,
 				B30AD9C417412BD700066690 /* UIView+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

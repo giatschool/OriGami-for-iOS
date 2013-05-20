@@ -16,12 +16,16 @@ typedef void (^RouteCompletionBlock)(NSArray *routes);
 
 
 @interface OGRoute : NSObject
+{
+	NSArray *_tasks;
+}
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *routeID;
-@property (nonatomic, strong) NSArray *tasks;
 
 - (void)queryAllRoutes:(RouteCompletionBlock)completion;
-- (OGTask*)objectAtIndexedSubscript:(NSUInteger)idx;
++ (id)routeWithFeatureSet:(AGSFeatureSet*)featureSet;
+- (id)initWithFeatureSet:(AGSFeatureSet*)featureSet;
+
 
 @end

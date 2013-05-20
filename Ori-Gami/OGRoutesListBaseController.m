@@ -122,9 +122,21 @@
 	
 	NSString *searchString = self.textField.text;
 	
-	NSIndexSet *indice = [self.dataArray indexesOfObjectsPassingTest:^BOOL(NSDictionary *dict, NSUInteger idx, BOOL *stop)
+	NSIndexSet *indice = [self.dataArray indexesOfObjectsPassingTest:^BOOL(NSDictionary *route, NSUInteger idx, BOOL *stop)
 						  {
-							  return ([dict[kRouteIDField] rangeOfString:searchString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch].location != NSNotFound);
+							  BOOL passed = NO;
+							  
+							  if ([route[kRouteIDField] rangeOfString:searchString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch].location != NSNotFound)
+							  {
+								  passed = YES;
+							  }
+							  
+							  if ([route[kRouteNameField] rangeOfString:searchString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch].location != NSNotFound)
+							  {
+								  passed = YES;
+							  }
+							  
+							  return passed;
 						  }];
 	
 	[self.filteredArray addObjectsFromArray:[self.dataArray objectsAtIndexes:indice]];

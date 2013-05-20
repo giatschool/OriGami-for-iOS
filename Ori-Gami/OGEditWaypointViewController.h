@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OGEditWaypointViewController : UIViewController
+@class OGTask;
+
+@interface OGEditWaypointViewController : UITableViewController
+
+@property (nonatomic, strong) OGTask *task;
+
 
 @end

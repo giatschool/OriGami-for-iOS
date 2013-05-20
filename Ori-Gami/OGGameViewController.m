@@ -102,8 +102,8 @@
 {
 	if (featureSet.features.count > 1)
 	{
-		self.route = [OGGameRoute routeWithFeatureSet:featureSet startingPoint:self.mapView.locationDisplay.mapLocation];
-
+		self.route = [OGGameRoute routeWithFeatureSet:featureSet];
+		[self.route setStartingPoint:self.mapView.locationDisplay.mapLocation];
 		[self.mapView zoomToScale:30000.0 withCenterPoint:self.route.currentTask.startPoint animated:YES];
 	}
 	else

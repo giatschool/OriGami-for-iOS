@@ -13,12 +13,13 @@
 #import "OGRoutesListEditorController.h"
 #import "OGEditRouteViewController.h"
 #import "UIAlertView+Extensions.h"
-#import "OGWaypointRenderer.h"
+#import "OGRoutesListEditorController.h"
 #import "OGTask.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIView+Extensions.h"
+#import "OGEditWaypointViewController.h"
 
-@interface OGEditorViewController () <AGSMapViewCalloutDelegate, UIPopoverControllerDelegate, AGSFeatureLayerEditingDelegate, AGSFeatureLayerQueryDelegate, AGSLayerDelegate, AGSMapViewTouchDelegate, AGSMapViewLayerDelegate, AGSQueryTaskDelegate, OGRouteEditDelegate, OGRoutesListDelegate>
+@interface OGEditorViewController () <AGSMapViewCalloutDelegate, UIPopoverControllerDelegate, AGSFeatureLayerEditingDelegate, AGSFeatureLayerQueryDelegate, AGSLayerDelegate, AGSMapViewTouchDelegate, AGSMapViewLayerDelegate, AGSQueryTaskDelegate, OGRouteEditDelegate, OGRoutesListDelegate, AGSInfoTemplateDelegate>
 
 @property (weak, nonatomic) IBOutlet AGSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
@@ -28,11 +29,9 @@
 @property (nonatomic, strong) UIPopoverController *myPopover;
 
 @property (nonatomic, strong) AGSFeatureLayer *featureLayer;
-@property (nonatomic, strong) AGSQuery *query;
-@property (nonatomic, strong) AGSQueryTask *queryTask;
-
 @property (nonatomic, strong) OGEditorRoute *selectedRoute;
-@property (nonatomic, strong) NSMutableArray *routes;
+
+@property (nonatomic, strong) OGEditWaypointViewController *waypointViewController;
 
 @end
 
@@ -49,22 +48,18 @@
 	[self setupMapView];
 	
 	self.infoButton.enabled = NO;
-	self.listButton.enabled = NO;
-}
 
-- (void)viewDidAppear:(BOOL)animated
-{
-	[super viewDidAppear:animated];
+	UINavigationController *navController = (UINavigationController*)[self.storyboard instantiateViewControllerWithIdentifier:@"waypointController"];
+	self.waypointViewController = (OGEditWaypointViewController*)navController.viewControllers[0];
 	
-	[self loadAllRoutes];
 }
-
 
 
 #pragma mark - AGSMapViewDelegate
 
 - (void)mapViewDidLoad:(AGSMapView*)mapView
 {
+	[self setupFeatureLayer];
 	[self.mapView.locationDisplay startDataSource];
 }
 
@@ -74,6 +69,15 @@
 
 - (BOOL)mapView:(AGSMapView *)mapView shouldShowCalloutForGraphic:(AGSGraphic *)graphic
 {
+	int waypointIndex = [(NSNumber*)[graphic attributeForKey:kWaypointIDField] intValue];
+	OGTask *task = self.selectedRoute[waypointIndex];
+	self.waypointViewController.task = task;
+	[self.waypointViewController.tableView reloadData];
+	self.mapView.callout.customView = self.waypointViewController.navigationController.view;
+	self.mapView.callout.customView.frame = CGRectMake(20.0, 0.0, 320.0, 219.0);
+	
+	
+
 	return YES;
 }
 
@@ -150,16 +154,14 @@
 		self.myPopover = [(UIStoryboardPopoverSegue *)segue popoverController];
 		self.myPopover.delegate = self;
 		
-		OGRoutesListEditorController *routesViewController = (OGRoutesListEditorController*)((UINavigationController*)segue.destinationViewController).viewControllers[0];
-		routesViewController.delegate = self;
-		routesViewController.canEdit = self.featureLayer.canDelete;
-		routesViewController.dataArray = [NSMutableArray arrayWithArray:self.routes];
+		OGRoutesListEditorController *routesListController = (OGRoutesListEditorController*)((UINavigationController*)segue.destinationViewController).viewControllers[0];
+		routesListController.delegate = self;
+		routesListController.canEdit = self.featureLayer.canDelete;
 	}
 	
 	if ([segue.identifier isEqualToString:@"showAddRoute"])
 	{
 		OGEditorRoute *newRoute = [OGEditorRoute new];
-		[self.routes addObject:newRoute];
 		
 		OGEditRouteViewController *routeViewController = (OGEditRouteViewController*)((UINavigationController*)segue.destinationViewController).viewControllers[0];
 		routeViewController.route = newRoute;
@@ -182,7 +184,6 @@
 
 - (void)editRouteController:(OGEditRouteViewController *)editRouteController didCancelRoute:(OGEditorRoute *)route
 {
-	[self.routes removeObject:route];
 	self.selectedRoute = nil;
 
 	self.infoButton.enabled = NO;
@@ -202,24 +203,23 @@
 
 #pragma mark - OGRoutesListDelegate
 
-- (void)routesListController:(OGRoutesListEditorController *)routesListController didDeleteRoute:(OGEditorRoute *)route
+- (void)routesListController:(OGRoutesListEditorController *)routesListController didDeleteRouteWithID:(NSString *)routeID
 {
-	
+	[self.myPopover dismissPopoverAnimated:YES];
+	self.myPopover = nil;
+
 }
 
-- (void)routesListController:(OGRoutesListEditorController *)routesListController didSelectRoute:(OGEditorRoute *)route
+- (void)routesListController:(OGRoutesListEditorController *)routesListController didSelectRouteWithID:(NSString *)routeID
 {
-	self.selectedRoute = route;
+	[self setupFeatureLayer];
+	[self loadRouteWithIDIntoFeatureLayer:routeID];
+
 	self.infoButton.enabled = YES;
 	
 	[self.myPopover dismissPopoverAnimated:YES];
 	self.myPopover = nil;
-	
-	[self setupFeatureLayer];
-	[self loadRouteIntoFeatureLayer];
-	
 }
-
 
 
 #pragma mark - AGSFeatureLayerQueryDelegate
@@ -228,8 +228,10 @@
 {
 	if (featureSet.features.count > 0)
 	{
-		self.selectedRoute = [OGGameRoute routeWithFeatureSet:featureSet startingPoint:self.mapView.locationDisplay.mapLocation];
-		[self.mapView zoomToScale:30000.0 withCenterPoint:self.selectedRoute.currentTask.startPoint animated:YES];
+		self.selectedRoute = (OGEditorRoute*)[OGEditorRoute routeWithFeatureSet:featureSet];
+		
+
+		[self.mapView zoomToEnvelope:featureLayer.fullEnvelope animated:YES];
 		
 		NSLog(@"Found %i features", featureSet.features.count);
 	}
@@ -239,9 +241,6 @@
 	}
 }
 
-/**
- When the layer fails to query features, we log an error message
- **/
 - (void)featureLayer:(AGSFeatureLayer *)featureLayer operation:(NSOperation *)op didFailSelectFeaturesWithError:(NSError *)error
 {
 	NSLog(@"%s - %@", __func__, error.localizedDescription);
@@ -250,18 +249,6 @@
 
 
 #pragma mark - Private Methods
-
-- (void)loadAllRoutes
-{
-	self.query = [AGSQuery query];
-	self.query.outFields = [NSArray arrayWithObjects:kRouteIDField, nil];
-	self.query.orderByFields = @[[NSString stringWithFormat:@"%@ ASC", kRouteIDField]];
-	self.query.where = [NSString stringWithFormat:@"%@ IS NOT NULL", kRouteIDField];
-	
-	self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:kFeatureLayerURLEditor]];
-	self.queryTask.delegate = self;
-	[self.queryTask executeWithQuery:self.query];
-}
 
 - (void)setupMapView
 {
@@ -280,23 +267,26 @@
 - (void)setupFeatureLayer
 {
 	self.featureLayer = [AGSFeatureLayer featureServiceLayerWithURL:[NSURL URLWithString:kFeatureLayerURLEditor] mode:AGSFeatureLayerModeSnapshot];
-	self.featureLayer.definitionExpression = [NSString stringWithFormat:@"%@ LIKE '%@'", kRouteIDField, self.selectedRoute.routeID];
 	self.featureLayer.delegate = self;
+	self.featureLayer.infoTemplateDelegate = self;
 	self.featureLayer.queryDelegate = self;
-	
+	self.featureLayer.definitionExpression = [NSString stringWithFormat:@"%@ LIKE '%@'", kRouteIDField, @""];
+
 	[self.mapView removeMapLayerWithName:@"Feature Layer"];
 	[self.mapView addMapLayer:self.featureLayer withName:@"Feature Layer"];
 	
 	[self setupRenderer];
 }
 
-- (void)loadRouteIntoFeatureLayer
+- (void)loadRouteWithIDIntoFeatureLayer:(NSString*)routeID
 {
 	AGSQuery *query = [AGSQuery query];
 	query.outFields = [NSArray arrayWithObjects:@"*", nil];
 	query.orderByFields = @[[NSString stringWithFormat:@"%@ ASC", kWaypointIDField]];
 	query.where = [NSString stringWithFormat:@"%@ >= 0", kWaypointIDField];
 	
+	self.featureLayer.definitionExpression = [NSString stringWithFormat:@"%@ LIKE '%@'", kRouteIDField, routeID];
+
 	[self.featureLayer selectFeaturesWithQuery:query selectionMethod:AGSFeatureLayerSelectionMethodNew];	
 }
 
@@ -347,51 +337,6 @@
 	self.myPopover = nil;
 }
 
-
-
-#pragma mark - AGSQueryTaskDelegate
-
-- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation *)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
-{
-	NSMutableArray *array = [NSMutableArray array];
-	
-	for (AGSGraphic *feature in featureSet.features)
-	{
-		NSString *route_id = [feature attributeAsStringForKey:kRouteIDField];
-		NSString *route_name = [feature attributeAsStringForKey:kRouteNameField];
-		
-		OGEditorRoute *route = [OGEditorRoute editorRouteWithName:route_name id:route_id];
-		
-		__block BOOL add = YES;
-		
-		[array enumerateObjectsUsingBlock:^(OGEditorRoute *loopRoute, NSUInteger idx, BOOL *stop)
-		 {
-			 if ([loopRoute.routeID isEqualToString:route_id])
-			 {
-				 add = NO;
-				 *stop = YES;
-			 }
-		 }];
-		
-		if (add)
-		{
-			[array addObject:route];
-		}
-	}
-	
-	self.routes = [NSMutableArray arrayWithArray:array];
-
-	self.listButton.enabled = YES;
-}
-
-- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation *)op didFailWithError:(NSError *)error
-{
-	OGLog(error.localizedDescription);
-}
-
-
-
-
 #pragma mark - Key-Value-Observing
 
 /**
@@ -404,13 +349,11 @@
 	{
 		NSLog(@"%@", self.mapView.locationDisplay.location.point);
 
-		[self.mapView zoomToScale:30000.0 withCenterPoint:self.mapView.locationDisplay.location.point animated:YES];
+		//[self.mapView zoomToScale:30000.0 withCenterPoint:self.mapView.locationDisplay.location.point animated:YES];
 		
 		[self.mapView.locationDisplay stopDataSource];
 		[self.mapView.locationDisplay removeObserver:self forKeyPath:@"location"];
 	}
 }
-
-
 
 @end
