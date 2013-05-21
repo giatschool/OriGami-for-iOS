@@ -85,7 +85,7 @@ Für die kommenden Verisonen sind folgende Verbesserungen geplant:
 4. Die Auswahl einer Route muss noch stark verbessert werden. Eine kryptische Routen-ID ist praktisch für den Computer aber nicht für zehnjährige Kinder. Eine Auswahl anhand des Names der Route - oder noch besser: direkt mit graphischer Visualisierung auf einer Mini-Karte - wäre optimal.
 5. Optimal wäre auch die Möglichkeit Ori-Gami offline ohne Internetverbindung zu spielen. Der Grundstein dazu ist bereits gelegt, es muss allerdings noch das benötigte Kartenmaterial im Vorfeld gespeichert werden.
 
-## Glossar für Caro   
+## Glossar   
 
 Hier sind einige Begriffe erklärt, welche für einen technischen Laien unter Umständen nicht direkt verständlich sein könnten.
 
