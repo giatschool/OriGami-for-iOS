@@ -9,8 +9,6 @@
 #import "Constants.h"
 
 
-const CGFloat kAlbumEnlargeDuration = 0.5;
-
 const NSInteger kMaximumImageWidth = 640;
 
 NSString *const kBaseMapURL = @"http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer";
