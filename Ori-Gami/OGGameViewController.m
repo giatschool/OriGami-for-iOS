@@ -100,7 +100,7 @@
  **/
 - (void)featureLayer:(AGSFeatureLayer *)featureLayer operation:(NSOperation *)op didSelectFeaturesWithFeatureSet:(AGSFeatureSet *)featureSet
 {
-	if (featureSet.features.count > 1)
+	if (featureSet.features.count > 2)
 	{
 		self.route = [OGGameRoute routeWithFeatureSet:featureSet];
 		[self.route setStartingPoint:self.mapView.locationDisplay.mapLocation];

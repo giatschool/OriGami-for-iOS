@@ -24,4 +24,16 @@
 	self.textView.text = self.task.taskDescription;
 }
 
+
+- (void)setTask:(OGTask *)task
+{
+	if (task)
+	{
+		_task = task;
+		
+		self.textView.text = self.task.taskDescription;
+		self.title = [NSString stringWithFormat:@"%i", self.task.waypointNumber];
+	}
+}
+
 @end

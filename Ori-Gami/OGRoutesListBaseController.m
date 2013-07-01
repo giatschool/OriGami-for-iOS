@@ -26,13 +26,15 @@
  **/
 - (void)viewDidAppear:(BOOL)animated
 {
+	NSString *sqlWhere = [NSString stringWithFormat:@"%@ IS NOT NULL", kRouteIDField];
+	
 	self.dataArray = [NSMutableArray array];
 	self.filteredArray = [NSMutableArray array];
 		
 	self.query = [AGSQuery query];
 	self.query.outFields = [NSArray arrayWithObjects:kRouteIDField, nil];
 	self.query.orderByFields = @[[NSString stringWithFormat:@"%@ ASC", kRouteIDField]];
-	self.query.where = [NSString stringWithFormat:@"%@ IS NOT NULL", kRouteIDField];
+	self.query.where = sqlWhere;
 	
 	self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:kFeatureLayerURLGame]];
 	self.queryTask.delegate = self;
@@ -131,7 +133,7 @@
 								  passed = YES;
 							  }
 							  
-							  if ([route[kRouteNameField] rangeOfString:searchString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch].location != NSNotFound)
+							  if (route[kRouteNameField] && [route[kRouteNameField] rangeOfString:searchString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch].location != NSNotFound)
 							  {
 								  passed = YES;
 							  }

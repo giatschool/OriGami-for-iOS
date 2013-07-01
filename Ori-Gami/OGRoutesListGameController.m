@@ -28,8 +28,6 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	self.textField.text = kDebugRouteID;
 }
 
 #pragma mark - UITextFieldDelegate

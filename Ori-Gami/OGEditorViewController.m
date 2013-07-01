@@ -31,7 +31,10 @@
 @property (nonatomic, strong) AGSFeatureLayer *featureLayer;
 @property (nonatomic, strong) OGEditorRoute *selectedRoute;
 
-@property (nonatomic, strong) OGEditWaypointViewController *waypointViewController;
+//@property (nonatomic, strong) OGEditWaypointViewController *waypointViewController;
+@property (nonatomic, strong) UINavigationController *waypointViewController;
+
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -45,13 +48,15 @@
 {
     [super viewDidLoad];	
 	
-	[self setupMapView];
+//	[self setupMapView];
+//	
+//	self.infoButton.enabled = NO;
+//
+//	UINavigationController *navController = (UINavigationController*)[self.storyboard instantiateViewControllerWithIdentifier:@"waypointController"];
+////	self.waypointViewController = (OGEditWaypointViewController*)navController.viewControllers[0];
+//	self.waypointViewController = navController;
 	
-	self.infoButton.enabled = NO;
-
-	UINavigationController *navController = (UINavigationController*)[self.storyboard instantiateViewControllerWithIdentifier:@"waypointController"];
-	self.waypointViewController = (OGEditWaypointViewController*)navController.viewControllers[0];
-	
+	[self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://giv-learn2.uni-muenster.de/origami/editor/"]]];
 }
 
 
@@ -71,13 +76,12 @@
 {
 	int waypointIndex = [(NSNumber*)[graphic attributeForKey:kWaypointIDField] intValue];
 	OGTask *task = self.selectedRoute[waypointIndex];
-	self.waypointViewController.task = task;
-	[self.waypointViewController.tableView reloadData];
-	self.mapView.callout.customView = self.waypointViewController.navigationController.view;
+	
+	OGEditWaypointViewController *waypointViewController = (OGEditWaypointViewController*)self.waypointViewController.viewControllers[0];
+	waypointViewController.task = task;
+	self.mapView.callout.customView = self.waypointViewController.view;
 	self.mapView.callout.customView.frame = CGRectMake(20.0, 0.0, 320.0, 219.0);
 	
-	
-
 	return YES;
 }
 
@@ -106,14 +110,14 @@
 	alertView.dismissalBlock = ^(NSInteger buttonIndex){
 		if (buttonIndex == 1)
 		{
-			if (self.mapView.locationDisplay.isDataSourceStarted)
-			{
-				[self.mapView.locationDisplay stopDataSource];
-				[self.mapView.locationDisplay addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew) context:NULL];
-			}
-
-			[self.myPopover dismissPopoverAnimated:YES];
-			self.myPopover = nil;
+//			if (self.mapView.locationDisplay.isDataSourceStarted)
+//			{
+//				[self.mapView.locationDisplay stopDataSource];
+//				[self.mapView.locationDisplay addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew) context:NULL];
+//			}
+//
+//			[self.myPopover dismissPopoverAnimated:YES];
+//			self.myPopover = nil;
 			
 			[self.presentingViewController dismissViewControllerWithFoldStyle:MPFoldStyleCubic completion:^(BOOL finished) {
 				
@@ -226,7 +230,7 @@
 
 - (void)featureLayer:(AGSFeatureLayer *)featureLayer operation:(NSOperation *)op didSelectFeaturesWithFeatureSet:(AGSFeatureSet *)featureSet
 {
-	if (featureSet.features.count > 0)
+	if (featureSet.features.count > 1)
 	{
 		self.selectedRoute = (OGEditorRoute*)[OGEditorRoute routeWithFeatureSet:featureSet];
 		
