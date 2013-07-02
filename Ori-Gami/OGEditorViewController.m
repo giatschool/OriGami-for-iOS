@@ -19,7 +19,7 @@
 #import "UIView+Extensions.h"
 #import "OGEditWaypointViewController.h"
 
-@interface OGEditorViewController () <AGSMapViewCalloutDelegate, UIPopoverControllerDelegate, AGSFeatureLayerEditingDelegate, AGSFeatureLayerQueryDelegate, AGSLayerDelegate, AGSMapViewTouchDelegate, AGSMapViewLayerDelegate, AGSQueryTaskDelegate, OGRouteEditDelegate, OGRoutesListDelegate, AGSInfoTemplateDelegate, UIWebViewDelegate>
+@interface OGEditorViewController () <AGSMapViewCalloutDelegate, UIPopoverControllerDelegate, AGSFeatureLayerEditingDelegate, AGSFeatureLayerQueryDelegate, AGSLayerDelegate, AGSMapViewTouchDelegate, AGSMapViewLayerDelegate, AGSQueryTaskDelegate, OGRouteEditDelegate, OGRoutesListDelegate, AGSInfoTemplateDelegate>
 
 @property (weak, nonatomic) IBOutlet AGSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
@@ -57,7 +57,6 @@
 //	self.waypointViewController = navController;
 	
 	[self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://giv-learn2.uni-muenster.de/origami/editor/"]]];
-
 }
 
 
