@@ -798,8 +798,8 @@
 		B365F3BD16F1DB5A00AE6CE4 /* Ad-Hoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Institute for Geoinformatics";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Institute for Geoinformatics";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Benjamin Böcker (3NLL74TXVL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Benjamin Böcker (3NLL74TXVL)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(HOME)/Library/SDKs/ArcGIS/iOS/**",
 					"\"$(SRCROOT)/../../../Library/SDKs/ArcGIS/iOS\"",
@@ -815,8 +815,8 @@
 					ArcGIS,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "32E70DF6-C22E-4459-B0A0-6D8397AF51DD";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "32E70DF6-C22E-4459-B0A0-6D8397AF51DD";
+				PROVISIONING_PROFILE = "42165C98-E2C9-4098-9F84-40C56087D099";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "42165C98-E2C9-4098-9F84-40C56087D099";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
