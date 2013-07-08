@@ -54,7 +54,7 @@
 	{
 		NSString *route_id = [feature attributeAsStringForKey:kRouteIDField];
 		NSString *route_name = [feature attributeAsStringForKey:kRouteNameField];
-		
+
 		NSMutableDictionary *route = (NSMutableDictionary*)@{kRouteIDField: route_id};
 		if (route_name) [route setObject:route_name forKey:kRouteNameField];
 		
