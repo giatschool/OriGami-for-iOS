@@ -398,6 +398,62 @@
         <image name="search.png" width="66" height="67"/>
         <image name="wood2.png" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="AGSMapView" superclassName="AGSMapViewBase">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AGSMapView.h"/>
+        </class>
+        <class className="AGSMapViewBase" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AGSMapViewBase.h"/>
+        </class>
+        <class className="OGEndGameViewController" superclassName="OGMenuBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGEndGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="mainMenuButtonPressed:"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OGGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGGameViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="AGSMapView"/>
+                <relationship kind="outlet" name="paperBackgroundImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="smileyView" candidateClass="OGSmileyView"/>
+                <relationship kind="outlet" name="taskLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OGHelpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGHelpViewController.h"/>
+        </class>
+        <class className="OGMainMenuViewController" superclassName="OGMenuBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGMainMenuViewController.h"/>
+        </class>
+        <class className="OGMenuBaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGMenuBaseViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="paperBackgroundImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="OGRoutesListBaseController" superclassName="OGMenuBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGRoutesListBaseController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="waitlabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OGRoutesListGameController" superclassName="OGRoutesListBaseController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGRoutesListGameController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="searchButtonPressed:"/>
+                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="OGSmileyView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGSmileyView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
