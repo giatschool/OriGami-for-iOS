@@ -577,12 +577,9 @@
 				B32F8259173E64C400FCCC01 /* Liste.png in Resources */,
 				B32F8269173E770A00FCCC01 /* info.png in Resources */,
 				B32F826A173E770A00FCCC01 /* info@2x.png in Resources */,
-<<<<<<< HEAD
 				B3EDEF5217AA752F00774CBC /* Icon-72.png in Resources */,
 				B3EDEF5417AA753100774CBC /* Icon-72@2x.png in Resources */,
-=======
 				B353B8BD17830F4700EDF723 /* Localizable.strings in Resources */,
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,13 +830,10 @@
 					ArcGIS,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD
 				PROVISIONING_PROFILE = "42165C98-E2C9-4098-9F84-40C56087D099";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "42165C98-E2C9-4098-9F84-40C56087D099";
-=======
 				PROVISIONING_PROFILE = "32E70DF6-C22E-4459-B0A0-6D8397AF51DD";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "32E70DF6-C22E-4459-B0A0-6D8397AF51DD";
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
 				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;

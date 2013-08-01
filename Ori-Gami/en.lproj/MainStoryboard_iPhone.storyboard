@@ -445,8 +445,6 @@
         <class className="OGRoutesListGameController" superclassName="OGRoutesListBaseController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OGRoutesListGameController.h"/>
             <relationships>
-                <relationship kind="action" name="cancelButtonPressed:"/>
-                <relationship kind="action" name="searchButtonPressed:"/>
                 <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
             </relationships>
         </class>
