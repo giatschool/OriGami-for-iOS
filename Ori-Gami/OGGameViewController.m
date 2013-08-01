@@ -14,7 +14,7 @@
 #import "OGGameRoute.h"
 #import "OGEndGameViewController.h"
 
-@interface OGGameViewController () <AGSMapViewLayerDelegate, AGSLayerDelegate, AGSFeatureLayerQueryDelegate>
+@interface OGGameViewController () <AGSMapViewLayerDelegate, AGSLayerDelegate, AGSFeatureLayerQueryDelegate, AGSLocationDisplayDataSourceDelegate>
 @property (weak, nonatomic) IBOutlet AGSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *taskLabel;
 @property (weak, nonatomic) IBOutlet OGSmileyView *smileyView;
@@ -23,6 +23,7 @@
 @property (nonatomic, strong) AGSFeatureLayer *featureLayer;
 @property (nonatomic, strong) OGGameRoute *route;
 
+@property (nonatomic, assign) BOOL zoomToCurrentLocation;
 @end
 
 @implementation OGGameViewController
@@ -88,8 +89,9 @@
  **/
 - (void)layer:(AGSLayer *)layer didFailToLoadWithError:(NSError *)error
 {
-	NSLog(@"%@", error.localizedDescription);
+
 }
+
 
 
 #pragma mark - AGSFeatureLayerQueryDelegate
@@ -104,11 +106,10 @@
 	{
 		self.route = [OGGameRoute routeWithFeatureSet:featureSet];
 		[self.route setStartingPoint:self.mapView.locationDisplay.mapLocation];
-		[self.mapView zoomToScale:30000.0 withCenterPoint:self.route.currentTask.startPoint animated:YES];
+
 	}
 	else
 	{
-		NSLog(@"%@", @"No features found in route");
 		[self endGame];
 	}
 }
@@ -118,7 +119,7 @@
  **/
 - (void)featureLayer:(AGSFeatureLayer *)featureLayer operation:(NSOperation *)op didFailSelectFeaturesWithError:(NSError *)error
 {
-	NSLog(@"%s - %@", __func__, error.localizedDescription);
+
 }
 
 
@@ -148,6 +149,8 @@
 	basemapLayer.renderNativeResolution = YES;
 	self.mapView.layerDelegate = self;
 	[self.mapView addMapLayer:basemapLayer withName:@"Basemap Layer"];
+	
+	self.zoomToCurrentLocation = YES;
 }
 
 /**
@@ -222,6 +225,13 @@
 	// TODO: Fix the bug with the wrong distance
 	// NSLog(@"%1.2f - %1.2f  |  %1.2f - %1.2f  |  %1.2fm", currentPoint.x, currentPoint.y, self.currentTask.destinationPoint.x, self.currentTask.destinationPoint.y, distanceInMeter);
 		
+	if (self.zoomToCurrentLocation)
+	{
+		self.zoomToCurrentLocation = NO;
+
+		[self.mapView zoomToScale:30000 withCenterPoint:currentPoint animated:YES];
+	}
+	
 	if (distanceInMeter > 0.0 && distanceInMeter < kDestinationRadius)
 	{
 		[self unlockNextTask];

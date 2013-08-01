@@ -7,6 +7,7 @@
 //
 
 #import "OGHelpViewController.h"
+#import "MPFlipTransition.h"
 
 @interface OGHelpViewController ()
 
@@ -15,17 +16,12 @@
 @implementation OGHelpViewController
 
 
-
-- (void)viewDidLoad
+- (IBAction)closeButtonPressed:(id)sender
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	[self.navigationController popToRootViewControllerWithFlipStyle:MPFlipStyleDirectionBackward];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+
 
 @end

@@ -142,7 +142,7 @@
 	startTask = [OGTask taskWithAGSGraphic:firstFeature];
 	startTask.startPoint = nil;
 	startTask.destinationPoint = firstFeature.geometry.envelope.center;
-	startTask.taskDescription = @"Finde den Startpunkt und begib dich dorthin";
+	startTask.taskDescription = NSLocalizedString(@"startPointHint", @"Finde den Startpunkt und begib dich dorthin");
 	
 	NSMutableArray *tmpTasks = [NSMutableArray arrayWithObject:startTask];
 	

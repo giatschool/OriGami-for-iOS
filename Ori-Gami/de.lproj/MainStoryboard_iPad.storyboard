@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="NPA-ZO-9NA">
     <dependencies>
-<<<<<<< HEAD
-        <deployment version="1552" identifier="iOS"/>
-        <development version="4600" identifier="xcode"/>
-=======
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
@@ -17,25 +12,16 @@
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <imageView userInteractionEnabled="NO" contentMode="center" image="background.png" id="Aop-PB-X5B">
-                                <rect key="frame" x="0.0" y="0.0" width="769" height="984"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="paperBackground.png" id="7fu-2e-wgr">
-                                <rect key="frame" x="117" y="126" width="535" height="731"/>
-=======
                             <imageView userInteractionEnabled="NO" contentMode="center" image="background~ipad.png" id="Aop-PB-X5B">
                                 <rect key="frame" x="0.0" y="0.0" width="769" height="1004"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="paperBackground@2x.png" id="7fu-2e-wgr">
                                 <rect key="frame" x="117" y="126" width="535" height="751"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ori-Gami" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Chq-2n-w1b">
-                                <rect key="frame" x="144" y="171" width="481" height="79"/>
+                                <rect key="frame" x="144" y="171" width="481" height="99"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="90"/>
                                 <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,14 +30,10 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BQP-lY-2Vl">
-<<<<<<< HEAD
-                                <rect key="frame" x="231" y="291" width="306" height="51"/>
-=======
-                                <rect key="frame" x="231" y="287" width="306" height="78"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
+                                <rect key="frame" x="231" y="291" width="306" height="71"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="50"/>
-                                <state key="normal" title="New Game">
+                                <state key="normal" title="Neues Spiel">
                                     <color key="titleColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
@@ -63,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VAV-df-IM7">
-                                <rect key="frame" x="232" y="393" width="306" height="58"/>
+                                <rect key="frame" x="232" y="393" width="306" height="78"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="50"/>
                                 <state key="normal" title="Editor">
@@ -78,10 +60,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="shg-cy-KuA">
-                                <rect key="frame" x="231" y="494" width="306" height="58"/>
+                                <rect key="frame" x="231" y="494" width="306" height="78"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="50"/>
-                                <state key="normal" title="Manual">
+                                <state key="normal" title="Anleitung">
                                     <color key="titleColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
@@ -89,7 +71,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ZHI-Sq-YxJ" kind="custom" identifier="showHelp" customClass="MPFlipNavPushSegue" id="ZFC-MO-Txe"/>
+                                    <segue destination="ZHI-Sq-YxJ" kind="custom" identifier="showHelp" customClass="MPFlipNavPushSegue" id="6FT-Cn-p0f"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -125,9 +107,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Welcome to Ori-Gami!
-</string>
+                                    <fragment content="Willkommen bei Ori-Gami!">
                                         <attributes>
                                             <color key="NSColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="24" name="BradleyHandITCTT-Bold"/>
@@ -136,18 +116,19 @@
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">With this app it's easy for children to learn how to read a map and orientate with them. Ori-Gami is a simplified version of a classic scavenger hunt. Children have to get from one location to another with the help of a digital map and simple directions.
+                                        <string key="content">
+Mit dieser App können Kinder spielerisch die Orientierung mit Hilfe von Karten erlernen. Ori-Gami ist eine vereinfachte Verison der klassischen Schnitzeljagd, die Spieler müssen mit Hilfe von einfachen Wegbeschrei-bungen von einem Ort zum nächsten wandern.
 
 </string>
                                         <attributes>
                                             <color key="NSColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="20" name="BradleyHandITCTT-Bold"/>
-                                            <font key="NSOriginalFont" size="24" name="BradleyHandITCTT-Bold"/>
+                                            <font key="NSFont" size="18" name="BradleyHandITCTT-Bold"/>
+                                            <font key="NSOriginalFont" size="16" name="BradleyHandITCTT-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">Game preparations
+                                        <string key="content">Vor Spielbeginn
 </string>
                                         <attributes>
                                             <color key="NSColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -157,18 +138,18 @@
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">The Teacher acts as the referee and has to create a route for the players first. This is done with the built-in editor, which has a manual itself. This route can be selected via the "New game" option in the main menu, where the players can search for it by name or route-id.
+                                        <string key="content">Der Spielleiter legt zunächst eine Route fest, welche die Spieler ablaufen müssen. Diese Route muss der Spielleiter vorher mit Hilfe des Editors angelegt haben. Wählt man im Hauptmenü den Punkt "Neues Spiel" aus, so kann man nach der vom Spielleiter festgelegten Route suchen (Name oder Routen-ID). Wählt man die gefundene Route aus, so beginnt das Spiel.
 
 </string>
                                         <attributes>
                                             <color key="NSColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="20" name="BradleyHandITCTT-Bold"/>
-                                            <font key="NSOriginalFont" size="24" name="BradleyHandITCTT-Bold"/>
+                                            <font key="NSFont" size="18" name="BradleyHandITCTT-Bold"/>
+                                            <font key="NSOriginalFont" size="16" name="BradleyHandITCTT-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">Game progress
+                                        <string key="content">Spielablauf
 </string>
                                         <attributes>
                                             <color key="NSColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -178,22 +159,22 @@
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">At first the players have to reach the starting point, which is shown on the map. There they get the first direction to a location. In the upper right corner of the screen is a smiley, which shows an approximate distance to the location the players have to reach next. It starts to smile as the players come closer to the next target location. A trumpet sounds as the players reach the location and the next direction gets unlocked. This is repeated until the players reach the final destination.</string>
+                                        <string key="content">Als erstes müssen die Spieler zum festgelegten Startpunkt der Route reisen. Dort wird automatisch der erste Hinweis zum nächsten Ort angezeigt. In der oberen rechten Ecke ist ein Smiley zu sehen. Dieser zeigt die ungefähre Entfernung zum nächsten Ort an, je näher die Spieler dem nächsten Ort kommen, umso mehr lächelt der Smiley. Kommen die Spieler dort an, so ertönt ein Trompeten-Signal und die Wegbeschreibung zum nächsten Ort wird freigeschaltet. Dies wird solange wiederholt bis die Spieler am Zielpunkt ankommen.</string>
                                         <attributes>
                                             <color key="NSColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="20" name="BradleyHandITCTT-Bold"/>
-                                            <font key="NSOriginalFont" size="24" name="BradleyHandITCTT-Bold"/>
+                                            <font key="NSFont" size="18" name="BradleyHandITCTT-Bold"/>
+                                            <font key="NSOriginalFont" size="16" name="BradleyHandITCTT-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JvT-lY-d9U">
-                                <rect key="frame" x="219" y="816" width="331" height="61"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FOv-bG-m9j">
+                                <rect key="frame" x="233" y="821" width="303" height="57"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="29"/>
-                                <state key="normal" title="Close">
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="30"/>
+                                <state key="normal" title="Schliessen">
                                     <color key="titleColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -201,7 +182,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="closeButtonPressed:" destination="ZHI-Sq-YxJ" eventType="touchUpInside" id="APD-sB-L7k"/>
+                                    <action selector="closeButtonPressed:" destination="ZHI-Sq-YxJ" eventType="touchUpInside" id="EfR-G3-I1a"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -221,17 +202,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" image="background~ipad.png" id="tJa-pE-tU5">
-<<<<<<< HEAD
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="984"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="paperBackground.png" id="W8S-wn-8ay">
-                                <rect key="frame" x="117" y="126" width="535" height="731"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wähle eine Route" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BiA-fR-b0J">
-                                <rect key="frame" x="40" y="146" width="689" height="43"/>
-=======
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -239,9 +209,8 @@
                                 <rect key="frame" x="117" y="126" width="535" height="751"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a route" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BiA-fR-b0J">
-                                <rect key="frame" x="40" y="146" width="689" height="94"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wähle eine Route" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BiA-fR-b0J">
+                                <rect key="frame" x="40" y="146" width="689" height="63"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="60"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -250,7 +219,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bitte warte einen Augenblick" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="18o-21-e50">
-                                <rect key="frame" x="-15" y="470" width="772" height="43"/>
+                                <rect key="frame" x="-15" y="470" width="772" height="63"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="30"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -258,13 +227,8 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-<<<<<<< HEAD
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Routen-ID" textAlignment="center" minimumFontSize="17" id="W95-m1-c4l">
-                                <rect key="frame" x="223" y="205" width="323" height="39"/>
-=======
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Route-ID" textAlignment="center" minimumFontSize="17" id="W95-m1-c4l">
                                 <rect key="frame" x="223" y="205" width="323" height="59"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="50"/>
@@ -274,7 +238,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eh8-oJ-53q">
-                                <rect key="frame" x="348" y="213" width="46" height="24"/>
+                                <rect key="frame" x="348" y="213" width="46" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="search.png">
@@ -289,7 +253,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="SNR-vE-Oml">
-                                <rect key="frame" x="159" y="272" width="450" height="559"/>
+                                <rect key="frame" x="159" y="272" width="450" height="579"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -300,25 +264,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-<<<<<<< HEAD
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Routenname" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" id="u2s-un-rxx">
-                                                    <rect key="frame" x="20" y="7" width="338" height="44"/>
-=======
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Route name" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" id="u2s-un-rxx">
                                                     <rect key="frame" x="20" y="7" width="338" height="64"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="40"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-<<<<<<< HEAD
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="RoutenID" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" id="m9m-fw-AUo">
-                                                    <rect key="frame" x="330" y="7" width="100" height="44"/>
-=======
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Route-ID" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" id="m9m-fw-AUo">
                                                     <rect key="frame" x="330" y="7" width="100" height="64"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -341,7 +295,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="q3f-zU-jhG">
-                                <rect key="frame" x="367" y="542" width="37" height="17"/>
+                                <rect key="frame" x="367" y="542" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -371,10 +325,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="XPJ-95-4ar">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="24"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <barButtonItem title="Close" id="zze-ar-gDB">
+                                    <barButtonItem title="Schliessen" id="zze-ar-gDB">
                                         <connections>
                                             <action selector="closeButtonPressed:" destination="5BX-ZI-W5x" id="BtT-XB-hdY"/>
                                         </connections>
@@ -383,7 +337,7 @@
                                 </items>
                             </toolbar>
                             <webView contentMode="scaleToFill" id="Sak-k8-j9u">
-                                <rect key="frame" x="0.0" y="44" width="768" height="940"/>
+                                <rect key="frame" x="0.0" y="44" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
@@ -403,11 +357,7 @@
             <objects>
                 <tableViewController id="L1L-G9-Iec" customClass="OGEditWaypointViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="X7a-04-4dL">
-<<<<<<< HEAD
-                        <rect key="frame" x="0.0" y="64" width="320" height="475"/>
-=======
                         <rect key="frame" x="0.0" y="64" width="320" height="175"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -421,7 +371,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="6PC-qn-aAz">
-                                                    <rect key="frame" x="5" y="5" width="290" height="100"/>
+                                                    <rect key="frame" x="5" y="5" width="290" height="120"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -475,7 +425,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Name" footerTitle="Enter a name for the new route" id="jKZ-Rf-WXU">
+                            <tableViewSection headerTitle="Name" footerTitle="Tragen Sie einen Namen für die neue Route ein." id="jKZ-Rf-WXU">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="lwa-uZ-SWY">
                                         <rect key="frame" x="0.0" y="54" width="540" height="46"/>
@@ -485,7 +435,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="Olf-wq-gs7">
-                                                    <rect key="frame" x="20" y="7" width="438" height="10"/>
+                                                    <rect key="frame" x="20" y="7" width="438" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -509,7 +459,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="JRq-4v-YVI">
-                                                    <rect key="frame" x="20" y="7" width="438" height="10"/>
+                                                    <rect key="frame" x="20" y="7" width="438" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -560,18 +510,6 @@
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="vNY-ES-HyQ">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="984"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="paperBackground.png" id="rSp-Qz-Ptc">
-                                <rect key="frame" x="159" y="246" width="450" height="491"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Glückwunsch!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="APX-g5-sb1">
-                                <rect key="frame" x="193" y="357" width="383" height="58"/>
-=======
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background~ipad.png" id="vNY-ES-HyQ">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -580,31 +518,25 @@
                                 <rect key="frame" x="159" y="246" width="450" height="511"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="APX-g5-sb1">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Glückwunsch!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="APX-g5-sb1">
                                 <rect key="frame" x="193" y="357" width="383" height="78"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="50"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Du hast die Route geschafft!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5KD-uW-32p">
-                                <rect key="frame" x="62" y="463" width="644" height="58"/>
-=======
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You have reached the goal!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5KD-uW-32p">
                                 <rect key="frame" x="62" y="463" width="644" height="78"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="30"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eJ8-Xn-K4m">
-                                <rect key="frame" x="229" y="570" width="311" height="59"/>
+                                <rect key="frame" x="229" y="570" width="311" height="79"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="50"/>
-                                <state key="normal" title="Main menu">
+                                <state key="normal" title="Hauptmenü">
                                     <color key="titleColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
@@ -636,28 +568,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="p91-cw-hQa" customClass="AGSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="984"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-<<<<<<< HEAD
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="paperBackground.png" id="aJN-cL-FMe">
-                                <rect key="frame" x="20" y="734" width="728" height="230"/>
-=======
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="paperBackground@2x.png" id="aJN-cL-FMe">
                                 <rect key="frame" x="20" y="734" width="728" height="250"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fvq-D2-zfz">
-                                <rect key="frame" x="40" y="754" width="688" height="190"/>
+                                <rect key="frame" x="40" y="754" width="688" height="210"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="40"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="5IG-cU-ILA" customClass="OGSmileyView">
-                                <rect key="frame" x="598" y="20" width="150" height="130"/>
+                                <rect key="frame" x="598" y="20" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -820,119 +747,12 @@
         </scene>
     </scenes>
     <resources>
-<<<<<<< HEAD
-        <image name="background.png" width="1024" height="1024"/>
-        <image name="background~ipad.png" width="1024" height="1024"/>
-        <image name="paperBackground.png" width="295" height="416"/>
-=======
         <image name="background~ipad.png" width="1024" height="1024"/>
         <image name="paperBackground@2x.png" width="589" height="832"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
         <image name="search.png" width="66" height="67"/>
     </resources>
-    <classes>
-        <class className="AGSMapView" superclassName="AGSMapViewBase">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AGSMapView.h"/>
-        </class>
-        <class className="AGSMapViewBase" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AGSMapViewBase.h"/>
-        </class>
-        <class className="OGEditRouteViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGEditRouteViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="OGEditWaypointViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGEditWaypointViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="OGEditorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGEditorViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="listButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="mapView" candidateClass="AGSMapView"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="OGEndGameViewController" superclassName="OGMenuBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGEndGameViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="OGGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGGameViewController.h"/>
-            <relationships>
-<<<<<<< HEAD
-=======
-                <relationship kind="action" name="unlock:"/>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
-                <relationship kind="outlet" name="mapView" candidateClass="AGSMapView"/>
-                <relationship kind="outlet" name="paperBackgroundImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="smileyView" candidateClass="OGSmileyView"/>
-                <relationship kind="outlet" name="taskLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-<<<<<<< HEAD
-=======
-        <class className="OGHelpViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGHelpViewController.h"/>
-        </class>
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
-        <class className="OGMainMenuViewController" superclassName="OGMenuBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGMainMenuViewController.h"/>
-        </class>
-        <class className="OGMenuBaseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGMenuBaseViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="paperBackgroundImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="OGRouteCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGRouteCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="idLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="OGRoutesListBaseController" superclassName="OGMenuBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGRoutesListBaseController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="waitlabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="OGRoutesListEditorController" superclassName="OGRoutesListBaseController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGRoutesListEditorController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="OGRoutesListGameController" superclassName="OGRoutesListBaseController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGRoutesListGameController.h"/>
-            <relationships>
-<<<<<<< HEAD
-                <relationship kind="action" name="cancelButtonPressed:"/>
-=======
->>>>>>> 50a9bf3871f40db7ec1d391eb53070bcecd68966
-                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="OGSmileyView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OGSmileyView.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>

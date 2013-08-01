@@ -25,7 +25,7 @@
 	int minutes = self.route.time / 60;
 	int seconds = (int)self.route.time % 60;
 	
-	self.label.text = [NSString stringWithFormat:@"Du hast %i Minuten und %i Sekunden gebraucht!", minutes, seconds];
+	self.label.text = [NSString stringWithFormat:NSLocalizedString(@"finishTime", @"Du hast %i Minuten und %i Sekunden gebraucht!"), minutes, seconds];
 }
 
 
