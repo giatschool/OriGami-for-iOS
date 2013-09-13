@@ -53,7 +53,6 @@
 		B32F8269173E770A00FCCC01 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = B32F8267173E770A00FCCC01 /* info.png */; };
 		B32F826A173E770A00FCCC01 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B32F8268173E770A00FCCC01 /* info@2x.png */; };
 		B33D1304173C31A60070397A /* OGEditWaypointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33D1303173C31A60070397A /* OGEditWaypointViewController.m */; };
-		B353B8BD17830F4700EDF723 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B353B8BF17830F4700EDF723 /* Localizable.strings */; };
 		B359B4D316F46C2E00D981A3 /* OGGameRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = B359B4D216F46C2E00D981A3 /* OGGameRoute.m */; };
 		B35ED363173C16C50090D6FC /* OGMenuBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B35ED362173C16C50090D6FC /* OGMenuBaseViewController.m */; };
 		B35ED366173C2BE70090D6FC /* OGEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B35ED365173C2BE70090D6FC /* OGEditorViewController.m */; };
@@ -154,8 +153,6 @@
 		B32F8268173E770A00FCCC01 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
 		B33D1302173C31A60070397A /* OGEditWaypointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGEditWaypointViewController.h; sourceTree = "<group>"; };
 		B33D1303173C31A60070397A /* OGEditWaypointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGEditWaypointViewController.m; sourceTree = "<group>"; };
-		B353B8BE17830F4700EDF723 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B353B8C017830F4B00EDF723 /* de */ = {isa = PBXFileReference; lastKnownFileType = file; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B359B4D116F46C2E00D981A3 /* OGGameRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGGameRoute.h; sourceTree = "<group>"; };
 		B359B4D216F46C2E00D981A3 /* OGGameRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGGameRoute.m; sourceTree = "<group>"; };
 		B35ED361173C16C50090D6FC /* OGMenuBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGMenuBaseViewController.h; sourceTree = "<group>"; };
@@ -189,9 +186,6 @@
 		B3697A8E16F0C4E0008B72FC /* OGLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGLog.m; sourceTree = "<group>"; };
 		B394A13916EE5E9500302D0E /* OGTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGTask.h; sourceTree = "<group>"; };
 		B394A13A16EE5E9600302D0E /* OGTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGTask.m; sourceTree = "<group>"; };
-		B3978FD31783067900DE3007 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		B3978FD41783067900DE3007 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		B3978FD51783067900DE3007 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3A9DFFA173FDC34003007A4 /* NSString+RandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RandomString.h"; sourceTree = "<group>"; };
 		B3A9DFFB173FDC34003007A4 /* NSString+RandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RandomString.m"; sourceTree = "<group>"; };
 		B3B532DF173CEC5F00C1E14B /* OGEditRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGEditRouteViewController.h; sourceTree = "<group>"; };
@@ -314,7 +308,6 @@
 				B313B5D716D5026900374E28 /* InfoPlist.strings */,
 				B313B5DA16D5026900374E28 /* main.m */,
 				B313B5DC16D5026A00374E28 /* Ori-Gami-Prefix.pch */,
-				B353B8BF17830F4700EDF723 /* Localizable.strings */,
 			);
 			name = "Other Files";
 			sourceTree = "<group>";
@@ -533,7 +526,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				de,
 			);
 			mainGroup = B313B5C216D5026900374E28;
 			productRefGroup = B313B5CC16D5026900374E28 /* Products */;
@@ -577,9 +569,12 @@
 				B32F8259173E64C400FCCC01 /* Liste.png in Resources */,
 				B32F8269173E770A00FCCC01 /* info.png in Resources */,
 				B32F826A173E770A00FCCC01 /* info@2x.png in Resources */,
+<<<<<<< HEAD
 				B3EDEF5217AA752F00774CBC /* Icon-72.png in Resources */,
 				B3EDEF5417AA753100774CBC /* Icon-72@2x.png in Resources */,
 				B353B8BD17830F4700EDF723 /* Localizable.strings in Resources */,
+=======
+>>>>>>> parent of 50a9bf3... Bug Fixes
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,7 +631,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				B313B5D816D5026900374E28 /* en */,
-				B3978FD51783067900DE3007 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -645,7 +639,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				B313B5E716D5026A00374E28 /* en */,
-				B3978FD31783067900DE3007 /* de */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -654,18 +647,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				B313B5EA16D5026A00374E28 /* en */,
-				B3978FD41783067900DE3007 /* de */,
 			);
 			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		B353B8BF17830F4700EDF723 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B353B8BE17830F4700EDF723 /* en */,
-				B353B8C017830F4B00EDF723 /* de */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -747,7 +730,6 @@
 					ArcGIS,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -775,7 +757,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "D24D6764-F6EB-442C-9900-2FA34760BF4E";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D24D6764-F6EB-442C-9900-2FA34760BF4E";
-				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -834,7 +815,6 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "42165C98-E2C9-4098-9F84-40C56087D099";
 				PROVISIONING_PROFILE = "32E70DF6-C22E-4459-B0A0-6D8397AF51DD";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "32E70DF6-C22E-4459-B0A0-6D8397AF51DD";
-				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};

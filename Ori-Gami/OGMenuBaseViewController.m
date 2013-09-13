@@ -45,6 +45,8 @@
  **/
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
+	NSLog(@"%s", __func__);
+
 	CGRect fromRect = self.paperBackgroundImageView.bounds;
 	CGRect toRect = self.paperBackgroundImageView.bounds;
 	fromRect.size.height = toRect.size.width;

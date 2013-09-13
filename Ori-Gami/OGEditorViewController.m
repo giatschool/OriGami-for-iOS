@@ -91,8 +91,8 @@
 
 - (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint graphics:(NSDictionary *)graphics
 {
+	NSLog(@"%@", mappoint);
 
-	
 }
 
 
@@ -101,10 +101,10 @@
 
 - (IBAction)closeButtonPressed:(id)sender
 {
-	NSString *title = NSLocalizedString(@"close", @"Schließen");
-	NSString *message = NSLocalizedString(@"closeEditorHint",  @"Editor wird geschlossen und die aktuelle Route gespeichert.";);
-	NSString *okButton = NSLocalizedString(@"ok", @"OK");
-	NSString *cancelButton = NSLocalizedString(@"cancel", @"Abbrechen");
+	NSString *title = @"Schließen";
+	NSString *message = @"Editor wird geschlossen und die aktuelle Route gespeichert.";
+	NSString *okButton = @"OK";
+	NSString *cancelButton = @"Cancel";
 	
 	UIAlertView *alertView = [UIAlertView alertViewWithTitle:title message:message cancelButtonTitle:cancelButton otherButtonTitles:okButton, nil];
 	alertView.dismissalBlock = ^(NSInteger buttonIndex){
@@ -236,12 +236,18 @@
 		
 
 		[self.mapView zoomToEnvelope:featureLayer.fullEnvelope animated:YES];
+		
+		NSLog(@"Found %i features", featureSet.features.count);
+	}
+	else
+	{
+		NSLog(@"%@", @"No features found in route");
 	}
 }
 
 - (void)featureLayer:(AGSFeatureLayer *)featureLayer operation:(NSOperation *)op didFailSelectFeaturesWithError:(NSError *)error
 {
-
+	NSLog(@"%s - %@", __func__, error.localizedDescription);
 }
 
 
@@ -345,6 +351,8 @@
 {
 	if ([keyPath isEqual:@"location"])
 	{
+		NSLog(@"%@", self.mapView.locationDisplay.location.point);
+
 		//[self.mapView zoomToScale:30000.0 withCenterPoint:self.mapView.locationDisplay.location.point animated:YES];
 		
 		[self.mapView.locationDisplay stopDataSource];
